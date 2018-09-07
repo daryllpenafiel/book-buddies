@@ -1,0 +1,22 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "book_buddies",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 5000
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "book_buddies",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 5000
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}
