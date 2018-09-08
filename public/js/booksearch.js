@@ -3,8 +3,6 @@ $(document).ready(function () {
     $(document).on("click", "#book-search-button", function () {
         event.preventDefault();
 
-        
-
         var isbn = $("#isbn-search-input").val();
         var queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + encodeURI(isbn);
 
@@ -44,20 +42,37 @@ $(document).ready(function () {
                         `<div class="card" style="width: 18rem;">` +
                         `<img class="card-img-top" src="${bookThumbnail}" alt="Card image cap">` +
                         `<div class="card-body">` +
-                        `<h5 class="card-title">${bookTitle}</h5>` +
-                        `<p class="card-text">Author(s): ${bookAuthor}</p>` +
-                        `<p class="card-text">Category: ${bookCategory}</p>` +
+                        `<h5 class="card-title card-bookTitle">${bookTitle}</h5>` +
+                        `<p class="card-text card-bookAuthor" data-value="${bookAuthor}">Author(s): ${bookAuthor}</p>` +
+                        `<p class="card-text card-bookCategory" data-value="${bookCategory}">Category: ${bookCategory}</p>` +
                         `<a href="${bookLink}" target="_blank" class="btn btn-primary">Google Books Page</a>` +
+                        `<a target="_blank" class="btn btn-primary confirm-book-button">Create posting</a>` +
                         `</div>` +
                         `</div>`;
 
                     $(".results-here").append(bookCard);
 
                     console.log("appended");
+
                 }
             }
         })
 
     })
+
+
+    $(document).on("click", ".confirm-book-button", function () {
+
+        var bookTitle = $(this).siblings(".card-bookTitle").text();
+        var bookAuthor = $(this).siblings(".card-bookAuthor").attr("data-value");
+        var bookCategory = $(this).siblings(".card-bookCategory").attr("data-value");
+
+        $('#postBookModal').modal('show');
+
+        $(".post-modal-bookTitle").text(`Title: ${bookTitle}`);
+        $(".post-modal-bookAuthor").text(`Author: ${bookAuthor}`);
+        $(".post-modal-bookCategory").text(`Category: ${bookCategory}`);
+
+    });
 
 });
