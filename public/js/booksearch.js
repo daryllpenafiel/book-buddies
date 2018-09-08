@@ -3,13 +3,29 @@ $(document).ready(function () {
     $(document).on("click", "#book-search-button", function () {
         event.preventDefault();
 
-        var isbn = $("#isbn-search-input").val();
-        var queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + encodeURI(isbn);
+        // var title = $("#title-search-input").val();
+        // var author = $("#author-search-input").val();
+        var isbn = encodeURI($("#isbn-search-input").val());
 
-        // var queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + encodeURI(isbn) + "&key=" + APIkey;
+        
+        var queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbn;
+        
+        // if(title && author && isbn) {
+        //    queryURL = `https://www.googleapis.com/books/v1/volumes?q=intitle:${encodeURI(title)}+inauthor:${encodeURI(author)}+isbn:${encodeURI(isbn)}`;
+        // } else if (title && author && !isbn) {
+        //     queryURL = `https://www.googleapis.com/books/v1/volumes?q=${title}+${author}`;
+        // } else if (!title && author && isbn) {
+        //     queryURL = `https://www.googleapis.com/books/v1/volumes?q=${author}+${isbn}`;
+        // } else if (title && !author && isbn) {
+        //     queryURL = `https://www.googleapis.com/books/v1/volumes?q=${title}+${isbn}`;
+        // };
 
-        // console.log(`isbn: ${isbn}`);
+    
+
+    
         console.log(queryURL);
+        $("#title-search-input").val("");
+        $("#author-search-input").val("");
         $("#isbn-search-input").val("");
 
         $.ajax({
@@ -30,12 +46,14 @@ $(document).ready(function () {
                     var bookAuthor = result[i].volumeInfo.authors;
                     var bookCategory = result[i].volumeInfo.categories;
                     var bookLink = result[i].volumeInfo.previewLink;
+                    var bookISBN = result[i].volumeInfo.industryIdentifiers[0].identifier;
 
                     console.log(`title: ${bookTitle}`);
                     console.log(`authors: ${bookAuthor}`);
                     console.log(`category: ${bookCategory}`);
                     console.log(`image: ${bookThumbnail}`);
                     console.log(`link: ${bookLink}`);
+                    console.log(`ISBN: ${bookISBN}`);
                     console.log("-----------------------------");
 
                     var bookCard =
@@ -45,6 +63,7 @@ $(document).ready(function () {
                         `<h5 class="card-title card-bookTitle">${bookTitle}</h5>` +
                         `<p class="card-text card-bookAuthor" data-value="${bookAuthor}">Author(s): ${bookAuthor}</p>` +
                         `<p class="card-text card-bookCategory" data-value="${bookCategory}">Category: ${bookCategory}</p>` +
+                        `<p class="card-text card-bookISBN" data-value="${bookISBN}">ISBN: ${bookISBN}</p>` +
                         `<a href="${bookLink}" target="_blank" class="btn btn-primary">Google Books Page</a>` +
                         `<a target="_blank" class="btn btn-primary confirm-book-button">Create posting</a>` +
                         `</div>` +
@@ -66,12 +85,31 @@ $(document).ready(function () {
         var bookTitle = $(this).siblings(".card-bookTitle").text();
         var bookAuthor = $(this).siblings(".card-bookAuthor").attr("data-value");
         var bookCategory = $(this).siblings(".card-bookCategory").attr("data-value");
+        var bookISBN = $(this).siblings(".card-bookISBN").attr("data-value");
+        //-------Modal Input Values---------//
 
         $('#postBookModal').modal('show');
 
         $(".post-modal-bookTitle").text(`Title: ${bookTitle}`);
         $(".post-modal-bookAuthor").text(`Author: ${bookAuthor}`);
         $(".post-modal-bookCategory").text(`Category: ${bookCategory}`);
+        $(".post-modal-bookISBN").text(`ISBN: ${bookISBN}`);
+
+        $(document).on("click","#post-to-DB",function(){
+
+            var bookCondition = $("#sel1").val();
+            var bookPrice = $("#price-input").val();
+            var bookComments = $("#comment-input").val();
+
+            console.log(`title: ${bookTitle}`);
+            console.log(`authors: ${bookAuthor}`);
+            console.log(`category: ${bookCategory}`);
+            console.log(`ISBN: ${bookISBN}`);
+            console.log(`Condition: ${bookCondition}`);
+            console.log(`Price: ${bookPrice}`);
+            console.log(`Comments: ${bookComments}`);
+            console.log("-----------------------------");
+        });
 
     });
 
