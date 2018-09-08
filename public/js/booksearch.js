@@ -7,9 +7,8 @@ $(document).ready(function () {
         // var author = $("#author-search-input").val();
         var isbn = encodeURI($("#isbn-search-input").val());
 
-        
-        var queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbn;
-        
+        var queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn;
+
         // if(title && author && isbn) {
         //    queryURL = `https://www.googleapis.com/books/v1/volumes?q=intitle:${encodeURI(title)}+inauthor:${encodeURI(author)}+isbn:${encodeURI(isbn)}`;
         // } else if (title && author && !isbn) {
@@ -20,9 +19,6 @@ $(document).ready(function () {
         //     queryURL = `https://www.googleapis.com/books/v1/volumes?q=${title}+${isbn}`;
         // };
 
-    
-
-    
         console.log(queryURL);
         $("#title-search-input").val("");
         $("#author-search-input").val("");
@@ -70,15 +66,10 @@ $(document).ready(function () {
                         `</div>`;
 
                     $(".results-here").append(bookCard);
-
-                    console.log("appended");
-
                 }
             }
         })
-
     })
-
 
     $(document).on("click", ".confirm-book-button", function () {
 
@@ -95,7 +86,7 @@ $(document).ready(function () {
         $(".post-modal-bookCategory").text(`Category: ${bookCategory}`);
         $(".post-modal-bookISBN").text(`ISBN: ${bookISBN}`);
 
-        $(document).on("click","#post-to-DB",function(){
+        $(document).on("click", "#post-to-DB", function () {
 
             var bookCondition = $("#sel1").val();
             var bookPrice = $("#price-input").val();
@@ -109,8 +100,36 @@ $(document).ready(function () {
             console.log(`Price: ${bookPrice}`);
             console.log(`Comments: ${bookComments}`);
             console.log("-----------------------------");
-        });
 
+            if (!bookPrice) {
+                alert("Please fill in the asking price field.")
+            } else {
+                postBooktoDB({
+                    title: bookTitle,
+                    author: bookAuthor,
+                    category: bookCategory,
+                    isbn: bookISBN,
+                    condition: bookCondition,
+                    price: bookPrice,
+                    comments: bookComments
+                })
+            }
+        });
     });
+
+    function postBooktoDB(newBookData) {
+        $.post("/api/books", newBookData)
+            .then(function () {
+                console.log();
+                resetForm();
+            })
+    };
+
+    function resetForm(){
+        console.log("reset done!");
+        $("#sel1").val("");
+        $("#price-input").val("");
+        $("#comment-input").val("");
+    }
 
 });

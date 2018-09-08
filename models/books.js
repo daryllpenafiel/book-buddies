@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes)
             type: DataTypes.STRING
         },
         price: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.STRING,
             defaultValue: 0
         },
         comments: {
