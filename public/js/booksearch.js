@@ -130,6 +130,11 @@ $(document).ready(function () {
         $("#sel1").val("");
         $("#price-input").val("");
         $("#comment-input").val("");
+        $(".results-here").empty();
+        bookTitle;
+        bookAuthor;
+        bookCategory;
+        bookISBN;
     }
 
 });

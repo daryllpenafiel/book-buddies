@@ -11,6 +11,14 @@ module.exports = function (app) {
             });
     });
 
+    //for getting all books from DB
+    app.get("/api/books", function (req, res) {
+        db.books.findAll({})
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
+    });
+
     // app.get("/api/colors", function (req, res) {
     //     console.log(res);
 
