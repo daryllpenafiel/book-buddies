@@ -1,29 +1,28 @@
 $(document).ready(function () {
 
-
     var bookList = $("tbody");
     getBooks();
 
     function createBookRow(bookData) {
         var newTr = $("<tr>");
-        var deleteButton = $("<input>").addClass('btn btn-primary delete-item-button').attr("type", 'delete').attr("value", 'Delete').attr("id", bookData.id).attr("data-toggle", "modal").attr("data-target", "#delete-modal");
-        var checkoutButton = $("<input>").addClass('btn btn-primary checkout-item-button').attr("type", 'checkout').attr("value", 'Checkout').attr("id", bookData.id);
+        // var deleteButton = $("<input>").addClass('btn btn-primary delete-item-button').attr("type", 'delete').attr("value", 'Delete').attr("id", bookData.id).attr("data-toggle", "modal").attr("data-target", "#delete-modal");
+        // var checkoutButton = $("<input>").addClass('btn btn-primary checkout-item-button').attr("type", 'checkout').attr("value", 'Checkout').attr("id", bookData.id);
 
         newTr.data("books", bookData);
-        newTr.append("<td>" + bookData.title + "</td>");
+        newTr.append("<td>" + "<a href=" + "'./viewBook?bid=" + bookData.id + "'>" + bookData.title + "</a></td>");
         newTr.append("<td>" + bookData.isbn + "</td>");
         newTr.append("<td>" + bookData.author + "</td>");
         newTr.append("<td>" + bookData.category + "</td>");
         newTr.append("<td>" + bookData.condition + "</td>");
-        newTr.append("<td>" + bookData.price + "</td>");
-        newTr.append("<td>" + bookData.comments + "</td>");
-        newTr.append(checkoutButton);
-        newTr.append(deleteButton);
+        newTr.append("<td> $" + bookData.price + "</td>");
+        // newTr.append("<td>" + bookData.comments + "</td>");
+        // newTr.append(checkoutButton);
+        // newTr.append(deleteButton);
         return newTr;
     }
 
     function getBooks() {
-        $.get("/api/books", function (data) {
+        $.get("/api/books/", function (data) {
             var rowsToAdd = [];
             for (var i = 0; i < data.length; i++) {
                 rowsToAdd.push(createBookRow(data[i]));

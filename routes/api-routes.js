@@ -11,6 +11,19 @@ module.exports = function (app) {
             });
     });
 
+    //for getting a single book from DB
+    app.get("/api/viewBook/:id", function (req, res) {
+        
+        db.books.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
+    });
+
     //for getting all books from DB
     app.get("/api/books", function (req, res) {
         db.books.findAll({})
@@ -18,6 +31,19 @@ module.exports = function (app) {
                 res.json(dbBooks);
             });
     });
+
+    //for getting a single book from DB
+    app.get("/api/viewBook/:id", function (req, res) {
+        db.books.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
+    });
+
 
     // app.get("/api/colors", function (req, res) {
     //     console.log(res);

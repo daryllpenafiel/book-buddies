@@ -21,6 +21,12 @@ module.exports = function (app) {
     res.render(path.join(__dirname, "../views/buyBooks"));
   });
 
+    
+  //single book view Page
+  app.get("/viewBook", function (req, res) {
+    res.render(path.join(__dirname, "../views/viewBook"));
+  });
+
   // //colors page
   // app.get("/byColor/*", function (req, res) {
   //   res.render(path.join(__dirname, "../views/byColor"));

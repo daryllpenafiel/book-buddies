@@ -10,3 +10,13 @@ body {
 .jumbotron {
     background-color: lightsalmon;
 }
+
+body {
+    background-color: lightsalmon;
+}
+
+.table {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 15px;
+}
