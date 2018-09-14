@@ -32,6 +32,12 @@ module.exports = function (sequelize, DataTypes)
         }
     });
 
+    books.associate = function (models) {
+        books.belongsTo(models.users, {
+            foreignKey: models.users.email
+        })
+    }
+
     return books;
 };
 

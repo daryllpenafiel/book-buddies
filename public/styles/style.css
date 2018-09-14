@@ -20,3 +20,8 @@ body {
     border: 1px solid gray;
     border-radius: 15px;
 }
+
+.user-form-container {
+    max-width: 960px;
+    margin: auto;
+}
