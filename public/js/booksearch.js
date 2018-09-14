@@ -91,6 +91,7 @@ $(document).ready(function () {
             var bookCondition = $("#sel1").val();
             var bookPrice = $("#price-input").val();
             var bookComments = $("#comment-input").val();
+            var sellerEmail = $("#sellerEmail").val();
 
             console.log(`title: ${bookTitle}`);
             console.log(`authors: ${bookAuthor}`);
@@ -99,6 +100,7 @@ $(document).ready(function () {
             console.log(`Condition: ${bookCondition}`);
             console.log(`Price: ${bookPrice}`);
             console.log(`Comments: ${bookComments}`);
+            console.log(`Email: ${sellerEmail}`);
             console.log("-----------------------------");
 
             if (!bookPrice) {
@@ -111,7 +113,8 @@ $(document).ready(function () {
                     isbn: bookISBN,
                     condition: bookCondition,
                     price: bookPrice,
-                    comments: bookComments
+                    comments: bookComments,
+                    email:sellerEmail
                 })
             }
         });
@@ -130,6 +133,7 @@ $(document).ready(function () {
         $("#sel1").val("");
         $("#price-input").val("");
         $("#comment-input").val("");
+        $("#sellerEmail").val("");
         $(".results-here").empty();
         bookTitle;
         bookAuthor;

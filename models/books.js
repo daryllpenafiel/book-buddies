@@ -29,6 +29,10 @@ module.exports = function (sequelize, DataTypes)
         },
         comments: {
             type: DataTypes.STRING
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
 

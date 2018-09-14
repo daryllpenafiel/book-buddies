@@ -11,9 +11,25 @@ module.exports = function (app) {
             });
     });
 
+    //for getting all users from DB
+    app.get("/api/users", function (req, res) {
+        db.users.findAll({})
+            .then(function (dbUsers) {
+                res.json(dbUsers);
+            });
+    });
+
+    //for posting new users to users DB
+    app.post("/api/users", function (req, res) {
+        console.log(req.body);
+        db.users.create(req.body)
+            .then(function (dbUsers) {
+                res.json(dbUsers);
+            });
+    });
+
     //for getting a single book from DB
     app.get("/api/viewBook/:id", function (req, res) {
-        
         db.books.findOne({
                 where: {
                     id: req.params.id
@@ -31,6 +47,8 @@ module.exports = function (app) {
                 res.json(dbBooks);
             });
     });
+
+
 
     //for getting a single book from DB
     app.get("/api/viewBook/:id", function (req, res) {
