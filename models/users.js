@@ -1,5 +1,11 @@
 module.exports = function (sequelize, DataTypes) {
     var users = sequelize.define("users", {
+        id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER
+        },
         userName: {
             type: DataTypes.STRING,
             allowNull: false
@@ -36,9 +42,10 @@ module.exports = function (sequelize, DataTypes) {
     
     users.associate = function (models)
     {
-        users.hasMany(models.books, {
-            onDelete: "cascade"
-        });
+        users.hasMany(models.books);
+        // , {
+        //     onDelete: "cascade"
+        // });
     };
 
     return users;

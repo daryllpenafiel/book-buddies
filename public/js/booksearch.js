@@ -114,7 +114,7 @@ $(document).ready(function () {
                     condition: bookCondition,
                     price: bookPrice,
                     comments: bookComments,
-                    email:sellerEmail
+                    userId: sellerEmail
                 })
             }
         });

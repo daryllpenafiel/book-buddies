@@ -27,7 +27,9 @@ function createBookRow(bookData) {
     newTr.append("<td>" + bookData.condition + "</td>");
     newTr.append("<td>" + bookData.price + "</td>");
     newTr.append("<td>" + bookData.comments + "</td>");
-    newTr.append("<td>" + bookData.email + "</td>");
+    newTr.append("<td>" + bookData.user.id + "</td>");
+    newTr.append("<td>" + bookData.user.email + "</td>");
+    newTr.append("<td>" + bookData.user.school + "</td>");
     // newTr.append(checkoutButton);
     // newTr.append(deleteButton);
     return newTr;

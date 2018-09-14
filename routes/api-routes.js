@@ -33,7 +33,8 @@ module.exports = function (app) {
         db.books.findOne({
                 where: {
                     id: req.params.id
-                }
+                },
+                include: [db.users]
             })
             .then(function (dbBooks) {
                 res.json(dbBooks);

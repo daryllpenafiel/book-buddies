@@ -1,6 +1,12 @@
 module.exports = function (sequelize, DataTypes)
 {
     var books = sequelize.define("books", {
+        id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER
+        },
         title: {
             type: DataTypes.STRING,
             allowNull: false
@@ -30,16 +36,17 @@ module.exports = function (sequelize, DataTypes)
         comments: {
             type: DataTypes.STRING
         },
-        email: {
-            type: DataTypes.STRING,
+        userId: {
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
 
     books.associate = function (models) {
-        books.belongsTo(models.users, {
-            foreignKey: models.users.email
-        })
+        books.belongsTo(models.users);
+        // , {
+        //     foreignKey: models.users.email
+        // })
     }
 
     return books;
