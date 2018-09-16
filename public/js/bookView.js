@@ -1,8 +1,10 @@
 var bookList = $("tbody");
 
 function getBooks(bid) {
-    $.get("/api/viewBook/"+bid, function (data) {
+    $.get("/api/viewBook/" + bid, function (data) {
         bookList.prepend(createBookRow(data));
+        createBookCard(data);
+        createUserCard(data);
     });
 };
 
@@ -12,6 +14,39 @@ function renderBookList(rows) {
     } else {
         renderEmpty();
     }
+}
+
+function createUserCard (userData) {
+    var userCard =
+        `<div class="card" style="width: 18rem;">` +
+        `<img class="card-img-top" src="${userData.user.userName}" alt="Card image cap">` +
+        `<div class="card-body">` +
+        `<h5 class="card-title card-bookTitle">${userData.user.email}</h5>` +
+        // `<p class="card-text card-bookAuthor" data-value="${bookData.author}">Author(s): ${bookData.author}</p>` +
+        `<p class="card-text card-bookCategory" data-value="${userData.user.school}">Category: ${userData.user.school}</p>` +
+        // `<p class="card-text card-bookISBN" data-value="${bookData.isbn}">ISBN: ${bookData.isbn}</p>` +
+        `<a target="_blank" class="btn btn-primary confirm-book-button">Contact Poster</a>` +
+        `</div>` +
+        `</div>`;
+
+    $("#user-here").append(userCard);
+}
+
+function createBookCard (bookData){
+    var bookCard =
+        `<div class="card" style="width: 18rem;">` +
+        `<img class="card-img-top" src="${bookData.image}" alt="Card image cap">` +
+        `<div class="card-body">` +
+        `<h5 class="card-title card-bookTitle">${bookData.title}</h5>` +
+        `<p class="card-text card-bookAuthor" data-value="${bookData.author}">Author(s): ${bookData.author}</p>` +
+        `<p class="card-text card-bookCategory" data-value="${bookData.category}">Category: ${bookData.category}</p>` +
+        `<p class="card-text card-bookISBN" data-value="${bookData.isbn}">ISBN: ${bookData.isbn}</p>` +
+        `<a href="${"yay"}" target="_blank" class="btn btn-primary">Google Books Page</a>` +
+        `<a target="_blank" class="btn btn-primary confirm-book-button">Create posting</a>` +
+        `</div>` +
+        `</div>`;
+
+    $("#book-here").append(bookCard);
 }
 
 function createBookRow(bookData) {
@@ -48,6 +83,8 @@ function getUrlParameter(name) {
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
+
+
 
 $(document).ready(function () {
     var bid = getUrlParameter('bid');

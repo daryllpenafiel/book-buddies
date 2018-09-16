@@ -1,6 +1,7 @@
 body {
     text-align: center;
     margin: auto;
+    box-sizing: border-box;
 }
 
 .card {
@@ -8,20 +9,35 @@ body {
 }
 
 .jumbotron {
-    background-color: lightsalmon;
+    background-color: teal;
 }
 
 body {
-    background-color: lightsalmon;
+    background-color: teal;
 }
 
 .table {
     background-color: white;
     border: 1px solid gray;
-    border-radius: 15px;
 }
 
 .user-form-container {
     max-width: 960px;
     margin: auto;
+}
+
+.book-view {
+    min-width: 600px;
+    max-width: 960px;
+    background-color: white;
+    margin: 60px auto;
+    padding: 60px;
+}
+
+.book-view-book-details {
+    text-align: left;
+}
+
+.center-text {
+    text-align: center;
 }

@@ -15,9 +15,9 @@ $(document).ready(function () {
         newTr.append("<td>" + userData.lastName + "</td>");
         newTr.append("<td>" + userData.userName + "</td>");
         newTr.append("<td>" + userData.email + "</td>");
-        newTr.append("<td>" + userData.phone + "</td>");
-        newTr.append("<td> $" + userData.postalCode + "</td>");
-        newTr.append("<td> $" + userData.school + "</td>");
+        newTr.append("<td>" + userData.number + "</td>");
+        newTr.append("<td>" + userData.postalCode + "</td>");
+        newTr.append("<td>" + userData.school + "</td>");
         // newTr.append("<td>" + bookData.comments + "</td>");
         // newTr.append(checkoutButton);
         // newTr.append(deleteButton);

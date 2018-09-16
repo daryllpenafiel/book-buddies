@@ -54,7 +54,7 @@ $(document).ready(function () {
 
                     var bookCard =
                         `<div class="card" style="width: 18rem;">` +
-                        `<img class="card-img-top" src="${bookThumbnail}" alt="Card image cap">` +
+                        `<img class="card-img-top card-image" src="${bookThumbnail}" alt="Card image cap">` +
                         `<div class="card-body">` +
                         `<h5 class="card-title card-bookTitle">${bookTitle}</h5>` +
                         `<p class="card-text card-bookAuthor" data-value="${bookAuthor}">Author(s): ${bookAuthor}</p>` +
@@ -77,6 +77,7 @@ $(document).ready(function () {
         var bookAuthor = $(this).siblings(".card-bookAuthor").attr("data-value");
         var bookCategory = $(this).siblings(".card-bookCategory").attr("data-value");
         var bookISBN = $(this).siblings(".card-bookISBN").attr("data-value");
+
         //-------Modal Input Values---------//
 
         $('#postBookModal').modal('show');
