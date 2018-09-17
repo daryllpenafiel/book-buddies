@@ -4,52 +4,54 @@
 
     <div class="col-md-6 book-view-book-details">
       <h3 class="center-text">Book Details</h3>
-      {{!-- <div id="book-here"></div> --}}
-      <h5>Title: <span></span> </h5>
-      <h5>ISBN: <span></span> </h5>
-      <h5>Author: <span></span> </h5>
-      <h5>Price: <span></span> </h5>
-      <h5>Category: <span></span> </h5>
-      <h5>Comments: <span></span> </h5>
+      <p>Title: <span class="book-title"></span> </p>
+      <p>ISBN: <span class="book-isbn"></span> </p>
+      <p>Author: <span class="book-author"></span> </p>
+      <p>Price: <span class="book-price"></span> </p>
+      <p>Category: <span class="book-category"></span> </p>
+      <p>Comments: <p class="book-comments"></p> </p>
     </div>
 
     <div class="col-md-6 book-view-book-details">
       <h3 class="center-text">About the Poster</h3>
-      <div id="user-here"></div>
-
+      <p>Username: <span class="user-username"></span> </p>
+      <p>School: <span class="user-school"></span> </p>
+      <p>Email: <span class="user-email"></span> </p>
+      <p>Contact #: <span class="user-number"></span> </p>
+      <p>Location: <span class="user-location"></span> </p>
+      <button type="button" class="btn btn-primary" id="contact-poster-button">Contact Poster</button>
     </div>
 
   </div>
 </section>
 
 
-
-
-
 <!-- Modal -->
-<div class="modal fade" id="note-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" tabindex="-1" role="dialog" id="contact-poster-modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+        <h5 class="modal-title">Book Buddies</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Delete booking?
+        <p>User has been contacted!</p>
       </div>
       <div class="modal-footer">
+        {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary yes-delete-button">Yes</button>
       </div>
     </div>
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+<script src="./js/bookView.js"></script>
 
-<script src="js/bookView.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>

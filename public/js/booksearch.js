@@ -1,28 +1,38 @@
 $(document).ready(function () {
 
+    var searchKeyword;
+    var queryURL;
+    
     $(document).on("click", "#book-search-button", function () {
         event.preventDefault();
 
-        // var title = $("#title-search-input").val();
-        // var author = $("#author-search-input").val();
-        var isbn = encodeURI($("#isbn-search-input").val());
+        $(".results-here").empty();
 
-        var queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn;
+        function checkSearchMethod() {
+            var selection = $("input[type=radio][name=search-method]:checked").val();
 
-        // if(title && author && isbn) {
-        //    queryURL = `https://www.googleapis.com/books/v1/volumes?q=intitle:${encodeURI(title)}+inauthor:${encodeURI(author)}+isbn:${encodeURI(isbn)}`;
-        // } else if (title && author && !isbn) {
-        //     queryURL = `https://www.googleapis.com/books/v1/volumes?q=${title}+${author}`;
-        // } else if (!title && author && isbn) {
-        //     queryURL = `https://www.googleapis.com/books/v1/volumes?q=${author}+${isbn}`;
-        // } else if (title && !author && isbn) {
-        //     queryURL = `https://www.googleapis.com/books/v1/volumes?q=${title}+${isbn}`;
-        // };
+            switch (selection) {
+                case "title":
+                    searchKeyword = encodeURI($("#title-search-input").val());
+                    queryURL = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + searchKeyword;
+                    console.log(queryURL);
+                    break;
+                case "isbn":
+                    searchKeyword = encodeURI($("#isbn-search-input").val());
+                    queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + searchKeyword;
+                    console.log(queryURL);
+                    break;
+                case "manual":
+                    console.log("manual");
+                    $('#manualFormModal').modal('show');
+                    break;
+                default:
+                    console.log("mehh");
+            }
+            return queryURL;
+        };
 
-        console.log(queryURL);
-        $("#title-search-input").val("");
-        $("#author-search-input").val("");
-        $("#isbn-search-input").val("");
+        checkSearchMethod();
 
         $.ajax({
             url: queryURL,
@@ -44,13 +54,13 @@ $(document).ready(function () {
                     var bookLink = result[i].volumeInfo.previewLink;
                     var bookISBN = result[i].volumeInfo.industryIdentifiers[0].identifier;
 
-                    console.log(`title: ${bookTitle}`);
-                    console.log(`authors: ${bookAuthor}`);
-                    console.log(`category: ${bookCategory}`);
-                    console.log(`image: ${bookThumbnail}`);
-                    console.log(`link: ${bookLink}`);
-                    console.log(`ISBN: ${bookISBN}`);
-                    console.log("-----------------------------");
+                    // console.log(`title: ${bookTitle}`);
+                    // console.log(`authors: ${bookAuthor}`);
+                    // console.log(`category: ${bookCategory}`);
+                    // console.log(`image: ${bookThumbnail}`);
+                    // console.log(`link: ${bookLink}`);
+                    // console.log(`ISBN: ${bookISBN}`);
+                    // console.log("-----------------------------");
 
                     var bookCard =
                         `<div class="card" style="width: 18rem;">` +
@@ -66,10 +76,51 @@ $(document).ready(function () {
                         `</div>`;
 
                     $(".results-here").append(bookCard);
+
+                    $("#title-search-input").val("")
+                    $("#isbn-search-input").val("")
                 }
             }
         })
     })
+
+    $(document).on("click", "#manual-post-to-DB", function () {
+        var bookTitle = $("#manual-title-input").val();
+        var bookAuthor = $("#manual-author-input").val();
+        var bookCategory = $("#manual-category-select").val();
+        var bookISBN = $("#manual-isbn-input").val();
+        var bookCondition = $("#manual-condition-select").val();
+        var bookPrice = $("#manual-price-input").val();
+        var bookComments = $("#manual-comment-input").val();
+        var sellerEmail = $("#manual-sellerEmail").val();
+
+        // console.log(`title: ${bookTitle}`);
+        // console.log(`authors: ${bookAuthor}`);
+        // console.log(`category: ${bookCategory}`);
+        // console.log(`ISBN: ${bookISBN}`);
+        // console.log(`Condition: ${bookCondition}`);
+        // console.log(`Price: ${bookPrice}`);
+        // console.log(`Comments: ${bookComments}`);
+        // console.log(`Email: ${sellerEmail}`);
+        // console.log("-----------------------------");
+
+        if (!bookPrice) {
+            alert("Please fill in the asking price field.")
+        } else {
+            postBooktoDB({
+                title: bookTitle,
+                author: bookAuthor,
+                category: bookCategory,
+                isbn: bookISBN,
+                condition: bookCondition,
+                price: bookPrice,
+                comments: bookComments,
+                userId: sellerEmail
+            })
+        }
+    });
+});
+
 
     $(document).on("click", ".confirm-book-button", function () {
 
@@ -89,20 +140,20 @@ $(document).ready(function () {
 
         $(document).on("click", "#post-to-DB", function () {
 
-            var bookCondition = $("#sel1").val();
+            var bookCondition = $("#condition-select").val();
             var bookPrice = $("#price-input").val();
             var bookComments = $("#comment-input").val();
             var sellerEmail = $("#sellerEmail").val();
 
-            console.log(`title: ${bookTitle}`);
-            console.log(`authors: ${bookAuthor}`);
-            console.log(`category: ${bookCategory}`);
-            console.log(`ISBN: ${bookISBN}`);
-            console.log(`Condition: ${bookCondition}`);
-            console.log(`Price: ${bookPrice}`);
-            console.log(`Comments: ${bookComments}`);
-            console.log(`Email: ${sellerEmail}`);
-            console.log("-----------------------------");
+            // console.log(`title: ${bookTitle}`);
+            // console.log(`authors: ${bookAuthor}`);
+            // console.log(`category: ${bookCategory}`);
+            // console.log(`ISBN: ${bookISBN}`);
+            // console.log(`Condition: ${bookCondition}`);
+            // console.log(`Price: ${bookPrice}`);
+            // console.log(`Comments: ${bookComments}`);
+            // console.log(`Email: ${sellerEmail}`);
+            // console.log("-----------------------------");
 
             if (!bookPrice) {
                 alert("Please fill in the asking price field.")
@@ -124,14 +175,13 @@ $(document).ready(function () {
     function postBooktoDB(newBookData) {
         $.post("/api/books", newBookData)
             .then(function () {
-                console.log();
                 resetForm();
             })
     };
 
-    function resetForm(){
+    function resetForm() {
         console.log("reset done!");
-        $("#sel1").val("");
+        $("#condition-select").val("");
         $("#price-input").val("");
         $("#comment-input").val("");
         $("#sellerEmail").val("");
@@ -140,6 +190,4 @@ $(document).ready(function () {
         bookAuthor;
         bookCategory;
         bookISBN;
-    }
-
-});
+    };

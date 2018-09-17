@@ -1,31 +1,47 @@
-<div class="row">
-  {{!-- insert buttons here for book categories which will serve as filters --}}
+{{!-- Dropdpown for book categories --}}
+<div class="row category-filters-row">
+  <div class="col-md-4">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Category</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>Choose...</option>
+        <option value="1">Fiction</option>
+        <option value="2">Computers</option>
+        <option value="3">Business</option>
+      </select>
+          <button type="button" class="btn btn-info">Search</button>
+    </div>
+
+  </div>
 </div>
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="author-container">
-            <h1>Books for Sale</h1>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>ISBN</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                        <th>Condition</th>
-                        <th>Price</th>
-                        {{!-- <th>Comments</th> --}}
-                    </tr>
-                </thead>
-                <tbody>
-                    {{!-- <tr id="bookings-row">
 
-                    </tr> --}}
-                </tbody>
-            </table>
-        </div>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="author-container">
+      <br>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Condition</th>
+            <th>Price</th>
+            {{!-- <th>Comments</th> --}}
+          </tr>
+        </thead>
+        <tbody>
+          {{!-- <tr id="bookings-row">
+
+          </tr> --}}
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
 
 <!-- Modal -->
@@ -51,5 +67,7 @@
 
 
 <script src="./js/bookBrowse.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>

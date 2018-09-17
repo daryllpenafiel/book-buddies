@@ -1,12 +1,44 @@
-<br><br>
-Enter your book's ISBN number below:
-<br>
-<input type="text" id="title-search-input" placeholder="title">
-<input type="text" id="author-search-input" placeholder="author">
-<input type="text" id="isbn-search-input" placeholder="isbn">
-<button id="book-search-button">Search</button><br>
+<div class="container book-search-container">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>How would you like to enter your book information?</h5>
+        </div>
+    </div>
 
-<br>
+    <div class="row radio-row">
+        <div class="col-md-4">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="search-method" value="title">Search by Title
+                </label>
+            </div>
+            <input type="text" id="title-search-input" placeholder="Input title">
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="search-method" value="isbn">Search by ISBN
+                </label>
+            </div>
+            <input type="text" id="isbn-search-input" placeholder="Input ISBN">
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="search-method" value="manual">Enter book info
+                    manually
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <button id="book-search-button">Go</button><br>
+</div>
+
+
+</div>
 
 <p>CS book 0262011530</p>
 <p>100 years 0060740450</p>
@@ -29,7 +61,7 @@ Enter your book's ISBN number below:
                 <form>
                     <div class="form-group">
                         <label for="sel1">Book condition:</label>
-                        <select class="form-control" id="sel1">
+                        <select class="form-control" id="condition-select">
                             <option>Pretty much brand new</option>
                             <option>Mint</option>
                             <option>Fair</option>
@@ -57,6 +89,73 @@ Enter your book's ISBN number below:
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="manualFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Posting details:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Title:</label>
+                        <input class="form-control" id="manual-title-input"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Author:</label>
+                        <input class="form-control" id="manual-author-input"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Category:</label>
+                        <select class="form-control" id="manual-category-select">
+                            <option>Computers</option>
+                            <option>Fiction</option>
+                            <option>Business</option>
+                            <option>Math</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">ISBN:</label>
+                        <input class="form-control" id="manual-isbn-input"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Book condition:</label>
+                        <select class="form-control" id="manual-condition-select">
+                            <option>Pretty much brand new</option>
+                            <option>Mint</option>
+                            <option>Fair</option>
+                            <option>Poor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Asking price:</label>
+                        <input class="form-control" id="manual-price-input"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Comments:</label>
+                        <input class="form-control" id="manual-comment-input"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Email:</label>
+                        <input class="form-control" id="manual-sellerEmail"></input>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="manual-post-to-DB">Create Posting</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="results-here"></div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

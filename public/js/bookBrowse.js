@@ -5,9 +5,7 @@ $(document).ready(function () {
 
     function createBookRow(bookData) {
         var newTr = $("<tr>");
-        // var deleteButton = $("<input>").addClass('btn btn-primary delete-item-button').attr("type", 'delete').attr("value", 'Delete').attr("id", bookData.id).attr("data-toggle", "modal").attr("data-target", "#delete-modal");
-        // var checkoutButton = $("<input>").addClass('btn btn-primary checkout-item-button').attr("type", 'checkout').attr("value", 'Checkout').attr("id", bookData.id);
-
+        
         newTr.data("books", bookData);
         newTr.append("<td>" + "<a href=" + "'./viewBook?bid=" + bookData.id + "'>" + bookData.title + "</a></td>");
         newTr.append("<td>" + bookData.isbn + "</td>");
@@ -15,9 +13,6 @@ $(document).ready(function () {
         newTr.append("<td>" + bookData.category + "</td>");
         newTr.append("<td>" + bookData.condition + "</td>");
         newTr.append("<td> $" + bookData.price + "</td>");
-        // newTr.append("<td>" + bookData.comments + "</td>");
-        // newTr.append(checkoutButton);
-        // newTr.append(deleteButton);
         return newTr;
     }
 

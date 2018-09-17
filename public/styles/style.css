@@ -9,11 +9,11 @@ body {
 }
 
 .jumbotron {
-    background-color: teal;
+    background-color: steelblue;
 }
 
 body {
-    background-color: teal;
+    background-color: steelblue;
 }
 
 .table {
@@ -34,10 +34,31 @@ body {
     padding: 60px;
 }
 
+.book-search-container {
+    background-color: white;
+    margin: 60px auto;
+    padding: 30px 0px;
+    max-width: 960px;
+    text-align: center;
+}
+
 .book-view-book-details {
     text-align: left;
+    border: 1px solid darkslategray;
+    border-radius: 5px;
 }
 
 .center-text {
+    text-align: center;
+}
+
+.radio-row {
+    margin: 20px;
+    text-align: center;
+}
+.category-filters-row {
+    margin: auto;
+    background-color: lightslategray;
+    padding-top: 10px;
     text-align: center;
 }
