@@ -9,11 +9,14 @@ body {
 }
 
 .jumbotron {
-    background-color: steelblue;
+    background-color: rgb(70,130,180,0.5);
 }
 
 body {
-    background-color: steelblue;
+    background-color: rgb(70,130,180,0.5);
+    background-image: url("/images/books1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .table {
