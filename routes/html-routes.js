@@ -15,6 +15,7 @@ module.exports = function (app) {
     res.render(path.join(__dirname, "../views/sellBooks"));
   });
 
+
   //users table
   app.get("/users", function (req, res) {
     res.render(path.join(__dirname, "../views/viewUsers"));

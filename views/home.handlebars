@@ -1,20 +1,60 @@
 <main role="main">
 
-        <section class="jumbotron text-center">
-          <div class="container">
-            <h1 class="jumbotron-heading">Book Buddies</h1>
-            <p class="lead text-muted">An online marketplace for textbooks.</p>
-            <p>
-              <a href="./createUser" class="btn btn-primary my-2">New User</a>
-              <a href="./sell" class="btn btn-primary my-2">Sell</a>
-              <a href="./buy" class="btn btn-info my-2">Buy</a>
-            </p>
-          </div>
-        </section>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Book Buddies</h1>
+      <p class="lead">An online marketplace for textbooks.</p>
+      <p>
+        <a href="./createUser" class="btn btn-primary my-2">New User</a>
+        <a id="log-in-button" class="btn btn-info my-2">Sign In</a>
+        <a href="./sell" class="btn btn-primary my-2">Sell Books</a>
+        <a href="./buy" class="btn btn-info my-2">Browse Listings</a>
+      </p>
+    </div>
+  </section>
 
-    </main>
-  
+</main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-    <script src="./assets/javascript/js.js"></script>
+{{!-- login modal --}}
+<div id="loginModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content login-modal-content">
+      <form class="form-signin">
+        <div class="text-center mb-4">
+          <img class="mb-4" src="./images/favicon2.png" alt="" width="72"
+            height="72">
+          <h1 class="h3 mb-3 font-weight-normal">Book Buddies</h1>
+          <p>Welcome, book buddy!</a></p>
+        </div>
+
+        <div class="form-label-group">
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputEmail">Email address</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+<script src="./js/mainPage.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
