@@ -11,13 +11,13 @@ console.log("hello");
     function handleUserFormSubmit(event) {
         event.preventDefault();
 
-        firstName = $("#firstName").val().trim();
-        lastName = $("#lastName").val().trim();
-        phoneNumber = $("#userPhone").val().trim();
-        email = $("#userEmail").val().trim();
-        userName = $("#userName").val().trim();
-        postalCode = $("#userPostalCode").val().trim();
-        school = $("#userSchool").val().trim();
+        firstName = $("#reg-firstName").val().trim();
+        lastName = $("#reg-lastName").val().trim();
+        phoneNumber = $("#reg-userPhone").val().trim();
+        email = $("#reg-inputEmail").val().trim();
+        userName = $("#reg-userName").val().trim();
+        postalCode = $("#reg-userPostalCode").val().trim();
+        school = $("#reg-userSchool").val().trim();
 
         if (!firstName || !lastName || !email || !phoneNumber || !userName || !postalCode) {
             alert("Please fill in all fields.");
@@ -45,13 +45,13 @@ console.log("hello");
 
     function resetForm(){
         console.log("reset done!");
-        $("#firstName").val("");
-        $("#lastName").val("");
-        $("#userPhone").val("")
-        $("#userEmail").val("")
-        $("#userName").val("")
-        $("#userPostalCode").val("")
-        $("#userSchool").val("")
+        $("#reg-firstName").val("");
+        $("#reg-lastName").val("");
+        $("#reg-userPhone").val("")
+        $("#reg-inputEmail").val("")
+        $("#reg-userName").val("")
+        $("#reg-userPostalCode").val("")
+        $("#reg-userSchool").val("")
     }
 
 $(document).ready(function (){
