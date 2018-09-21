@@ -63,7 +63,7 @@ $(document).ready(function () {
                     // console.log("-----------------------------");
 
                     var bookCard =
-                        `<div class="card" style="width: 18rem;">` +
+                        `<div class="card book-result-card" style="width: 18rem;">` +
                         `<img class="card-img-top card-image" src="${bookThumbnail}" alt="Card image cap">` +
                         `<div class="card-body">` +
                         `<h5 class="card-title card-bookTitle">${bookTitle}</h5>` +

@@ -9,11 +9,11 @@ body {
 }
 
 .jumbotron {
-    background-color: rgb(70,130,180,0.5);
+    background-color: rgb(255,160,122,0.7);
 }
 
 body {
-    background-color: rgb(70,130,180,0.5);
+    background-color: rgb(255,160,122,0.7);
     background-image: url("/images/books1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,11 +38,18 @@ body {
 }
 
 .book-search-container {
-    background-color: rgb(255, 255, 255);
-    margin: 60px auto;
-    padding: 30px 0px;
-    max-width: 960px;
+    background-color: rgb(255,160,122,0.7);
+    padding: 20px 0px;
     text-align: center;
+}
+
+.search-options {
+    max-width: 960px;
+    margin: auto;
+}
+
+.book-result-card {
+    margin: 20px;
 }
 
 .book-view-book-details {
@@ -59,15 +66,15 @@ body {
     margin: 20px;
     text-align: center;
 }
+
 .category-filters-row {
     margin: auto;
-    background-color: lightslategray;
+    background-color: rgb(255,160,122,0.7);
     padding-top: 10px;
     text-align: center;
 }
 
 .login-modal-content {
     padding: 40px;
-    background-color: rgb(255,255,255,0.9);
+    background-color: rgb(255, 255, 255, 0.9);
 }
-

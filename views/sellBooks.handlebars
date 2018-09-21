@@ -1,48 +1,44 @@
-<div class="container book-search-container">
+<section class="book-search-container">
     <div class="row">
         <div class="col-md-12">
             <h5>How would you like to enter your book information?</h5>
         </div>
     </div>
 
-    <div class="row radio-row">
-        <div class="col-md-4">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="search-method" value="title">Search by Title
-                </label>
+    <div class="search-options">
+        <div class="row radio-row">
+            <div class="col-md-4">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="search-method" value="title">Search by Title
+                    </label>
+                </div>
+                <input type="text" id="title-search-input" placeholder="Input title">
             </div>
-            <input type="text" id="title-search-input" placeholder="Input title">
+
+            <div class="col-md-4">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="search-method" value="isbn">Search by ISBN
+                    </label>
+                </div>
+                <input type="text" id="isbn-search-input" placeholder="Input ISBN">
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="search-method" value="manual">Enter book
+                        info
+                        manually
+                    </label>
+                </div>
+            </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="search-method" value="isbn">Search by ISBN
-                </label>
-            </div>
-            <input type="text" id="isbn-search-input" placeholder="Input ISBN">
-        </div>
-
-        <div class="col-md-4">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="search-method" value="manual">Enter book info
-                    manually
-                </label>
-            </div>
-        </div>
+        <button id="book-search-button">Go</button><br>
     </div>
-
-    <button id="book-search-button">Go</button><br>
-</div>
-
-
-</div>
-
-<p>CS book 0262011530</p>
-<p>100 years 0060740450</p>
-<p>eloquent JS 9781593276614</p>
+</section>
 
 <div class="modal fade" id="postBookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
