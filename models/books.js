@@ -18,6 +18,10 @@ module.exports = function (sequelize, DataTypes)
             //     len: [20]
             // }
         },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         author: {
             type: DataTypes.STRING,
             allowNull: false
@@ -39,7 +43,7 @@ module.exports = function (sequelize, DataTypes)
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false
-        }
+        },
     });
 
     books.associate = function (models) {

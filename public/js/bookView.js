@@ -9,6 +9,7 @@ function getBooks(bid) {
 
 function inserBookData(bookData) {
     $(".book-title").append(bookData.title);
+    $(".book-image").attr("src",bookData.image);
     $(".book-isbn").append(bookData.isbn);
     $(".book-author").append(bookData.author);
     $(".book-price").append("$" + bookData.price);

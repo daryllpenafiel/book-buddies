@@ -2,21 +2,14 @@ body {
     text-align: center;
     margin: auto;
     box-sizing: border-box;
-}
-
-.card {
-    display: inline-block;
-}
-
-.jumbotron {
-    background-color: rgb(255,160,122,0.7);
-}
-
-body {
     background-color: rgb(255,160,122,0.7);
     background-image: url("/images/books1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.card {
+    display: inline-block;
 }
 
 .table {
@@ -24,22 +17,35 @@ body {
     border: 1px solid gray;
 }
 
+.center-text {
+    text-align: center;
+}
+
+/* ------------------- Main Page ------------------- */
+.jumbotron {
+    background-color: rgb(255,160,122,0.7);
+}
+
 .user-form-container {
     max-width: 960px;
     margin: auto;
 }
 
-.book-view {
-    min-width: 600px;
-    max-width: 960px;
-    background-color: white;
-    margin: 60px auto;
-    padding: 60px;
+.login-modal-content {
+    padding: 40px;
+    background-color: rgb(255, 255, 255, 0.9);
 }
 
+
+/* ---------------------- Book Search ----------------- */
 .book-search-container {
     background-color: rgb(255,160,122,0.7);
     padding: 20px 0px;
+    text-align: center;
+}
+
+.radio-row {
+    margin: 20px;
     text-align: center;
 }
 
@@ -49,23 +55,18 @@ body {
 }
 
 .book-result-card {
+    background-color: rgb(255, 255, 255, 0.85);
     margin: 20px;
+    padding: 10px;
 }
 
-.book-view-book-details {
-    text-align: left;
-    border: 1px solid darkslategray;
-    border-radius: 5px;
+.confirm-book-button {
+    margin-top: 10px;
 }
 
-.center-text {
-    text-align: center;
-}
 
-.radio-row {
-    margin: 20px;
-    text-align: center;
-}
+/* ---------------------- Book Browse ----------------- */
+
 
 .category-filters-row {
     margin: auto;
@@ -74,7 +75,32 @@ body {
     text-align: center;
 }
 
-.login-modal-content {
-    padding: 40px;
+
+
+/* ------------------------ Book View ----------------- */
+.book-view {
+    min-width: 600px;
+    max-width: 960px;
     background-color: rgb(255, 255, 255, 0.9);
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 5%;
+}
+
+.book-view-book-details {
+    text-align: center;
+    border: 1px solid darkslategray;
+    border-radius: 5px;
+}
+
+.book-image {
+    width: 15rem;
+    height: auto;
+}
+
+.user-image{
+    width: 12rem;
+    height: auto;
+    border-radius: 50%;
+    border: solid darkgoldenrod 1px;
 }
