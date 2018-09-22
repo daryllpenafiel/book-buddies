@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/style.css" media="screen" title="no title" charset="utf-8">
     <link href="./images/favicon2.png" rel="icon">
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <title>Book Buddies v1.0</title>
 </head>
@@ -20,17 +20,20 @@
 
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
         <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="./">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./buy">Buy</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="./sell">Sell</a>
+                <a class="nav-link" href="./sell">Sell</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="./users">Users</a>
+                <a class="nav-link" href="./users">Users</a>
+            </li>
+            <li class="nav-item">
+                <a id="log-out-button" class="nav-link d-none" href="#">Log Out</a>
             </li>
         </ul>
     </div>
@@ -41,6 +44,20 @@
     {{{body}}}
 
 
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyDLSFxBJqWeoiQ3v1dLPzE4xdeLVV8SWa4",
+            authDomain: "book-buddies-215701.firebaseapp.com",
+            databaseURL: "https://book-buddies-215701.firebaseio.com",
+            projectId: "book-buddies-215701",
+            storageBucket: "book-buddies-215701.appspot.com",
+            messagingSenderId: "93267305761"
+        };
+
+        firebase.initializeApp(config);
+    </script>
+    <script src="./js/auth.js"></script>
 
 </body>
 

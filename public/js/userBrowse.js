@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
     var userList = $("tbody");
     getUsers();
 

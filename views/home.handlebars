@@ -9,7 +9,7 @@
         <a id="log-in-modal-button" class="btn btn-info my-2">Sign In</a>
         <a href="./sell" class="btn btn-primary my-2">Sell Books</a>
         <a href="./buy" class="btn btn-info my-2">Browse Listings</a>
-        <a id="log-out-button" class="btn btn-warning my-2 d-none">Log Out</a>
+        {{!-- <a id="log-out-button" class="btn btn-warning my-2 d-none">Log Out</a> --}}
       </p>
     </div>
   </section>
@@ -76,6 +76,12 @@
         <div class="form-label-group">
           <label for="reg-inputPassword">Password</label>
           <input type="password" id="reg-inputPassword" class="form-control" placeholder="Password" autocomplete="current-password"
+            required>
+        </div>
+
+        <div class="form-label-group">
+          <label for="reg-inputPassword2">Password</label>
+          <input type="password" id="reg-inputPassword2" class="form-control" placeholder="Password" autocomplete="current-password"
             required>
         </div>
 
