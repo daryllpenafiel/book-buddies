@@ -81,6 +81,20 @@ $(document).ready(function () {
     })
 
     $(document).on("click", "#manual-post-to-DB", function () {
+
+        var fbemail;
+
+        //Auth State
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+
+            if (firebaseUser) {
+                fbemail = firebaseUser.email;
+            } else {
+                console.log("Not logged in");
+            }
+            $("#manual-sellerEmail").text(fbemail);
+        });
+
         var bookTitle = $("#manual-title-input").val();
         var bookAuthor = $("#manual-author-input").val();
         var bookCategory = $("#manual-category-select").val();
@@ -88,7 +102,7 @@ $(document).ready(function () {
         var bookCondition = $("#manual-condition-select").val();
         var bookPrice = $("#manual-price-input").val();
         var bookComments = $("#manual-comment-input").val();
-        var sellerEmail = $("#manual-sellerEmail").val();
+        var id = $("#manual-userId").val();
 
         if (!bookPrice) {
             alert("Please fill in the asking price field.")
@@ -101,7 +115,8 @@ $(document).ready(function () {
                 condition: bookCondition,
                 price: bookPrice,
                 comments: bookComments,
-                userId: sellerEmail
+                // email: sellerEmail
+                userId: id
             })
         }
     });
@@ -109,6 +124,18 @@ $(document).ready(function () {
 
 
 $(document).on("click", ".confirm-book-button", function () {
+
+    //Auth State
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        var fbemail;
+
+        if (firebaseUser) {
+            fbemail = firebaseUser.email;
+        } else {
+            fbemail = "Please log in to to post a listing."
+        }
+        $("#sellerEmail").text(fbemail);
+    });
 
     var bookTitle = $(this).siblings(".card-bookTitle").text();
     var bookAuthor = $(this).siblings(".card-bookAuthor").attr("data-value");
@@ -130,7 +157,8 @@ $(document).on("click", ".confirm-book-button", function () {
         var bookCondition = $("#condition-select").val();
         var bookPrice = $("#price-input").val();
         var bookComments = $("#comment-input").val();
-        var sellerEmail = $("#sellerEmail").val();
+        var sellerEmail = $("#sellerEmail").text();
+        var id = $("#userId").val();
 
         // console.log(`title: ${bookTitle}`);
         // console.log(`authors: ${bookAuthor}`);
@@ -154,7 +182,8 @@ $(document).on("click", ".confirm-book-button", function () {
                 condition: bookCondition,
                 price: bookPrice,
                 comments: bookComments,
-                userId: sellerEmail
+                // email: sellerEmail
+                userId: id
             })
         }
     });
@@ -162,9 +191,9 @@ $(document).on("click", ".confirm-book-button", function () {
 
 function postBooktoDB(newBookData) {
     $.post("/api/books", newBookData)
-        .then(function () {
-            resetForm();
-        })
+    .then(function () {
+        resetForm();
+    })
 };
 
 function resetForm() {

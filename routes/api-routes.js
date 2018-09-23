@@ -41,6 +41,30 @@ module.exports = function (app) {
             });
     });
 
+    // //for getting a single user from DB
+    // app.get("/api/users/:email", function (req, res) {
+    //     db.users.findOne({
+    //             where: {
+    //                 email: req.params.email
+    //             }
+    //         })
+    //         .then(function (dbUsers) {
+    //             res.json(dbUsers);
+    //         });
+    // });
+
+    // // app.get("/api/guests/", function(req, res) {
+    // //     if (req.params.id) {
+    // //       db.guest.findById(req.params.id).then(function(guest) {
+    // //         res.json(guest);
+    // //       });
+    // //     } else {
+    // //       db.guest.findAll({}).then(function(guest) {
+    // //         res.json(guest);
+    // //       });
+    // //     }
+    // //   });
+
     //for getting all books from DB
     app.get("/api/books", function (req, res) {
         db.books.findAll({})
@@ -48,7 +72,6 @@ module.exports = function (app) {
                 res.json(dbBooks);
             });
     });
-
 
 
     //for getting a single book from DB

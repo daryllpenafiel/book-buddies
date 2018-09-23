@@ -39,18 +39,15 @@ module.exports = function (sequelize, DataTypes)
         },
         comments: {
             type: DataTypes.STRING
-        },
-        userId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
+        }
+        // userID: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
     });
 
     books.associate = function (models) {
         books.belongsTo(models.users);
-        // , {
-        //     foreignKey: models.users.email
-        // })
     }
 
     return books;

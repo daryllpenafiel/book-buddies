@@ -19,7 +19,7 @@
             <div class="col-md-4">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="search-method" value="isbn" >Search by ISBN
+                        <input type="radio" class="form-check-input" name="search-method" value="isbn">Search by ISBN
                     </label>
                 </div>
                 <input type="text" id="isbn-search-input" placeholder="Input ISBN">
@@ -74,7 +74,12 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Email:</label>
-                        <input class="form-control" id="sellerEmail"></input>
+                        <span class="form-control" id="sellerEmail"></span>
+                    </div>
+                     {{!-- temp field for user ID --}}
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">ID:</label>
+                        <input class="form-control" id="userId"></input>
                     </div>
                 </form>
             </div>
@@ -138,7 +143,12 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Email:</label>
-                        <input class="form-control" id="manual-sellerEmail"></input>
+                        <span class="form-control" id="manual-sellerEmail"></span>
+                    </div>
+                    {{!-- temp field for user ID --}}
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">ID:</label>
+                        <input class="form-control" id="manual-userId"></input>
                     </div>
                 </form>
             </div>
