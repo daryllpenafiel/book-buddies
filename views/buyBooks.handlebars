@@ -1,6 +1,8 @@
-{{!-- Dropdpown for book categories --}}
 <div class="row category-filters-row">
-  <div class="col-md-4">
+
+{{!-- Dropdpown for book categories --}}
+
+  <div class="col-md-3">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="categorySelectGroup">Category</label>
@@ -16,11 +18,10 @@
     </div>
 
   </div>
-</div>
 
-{{!-- Search filed for book title --}}
-<div class="row category-filters-row">
-  <div class="col-md-4">
+{{!-- Search field for book title --}}
+
+  <div class="col-md-3">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="titleSearch">Title</label>
@@ -29,7 +30,32 @@
       </div>
     </div>
   </div>
+
+{{!-- Search field for ISBN --}}
+    <div class="col-md-3">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="isbnSearch">ISBN</label>
+        <input type="text" class="form-control" id="isbnSearch">
+        <button type="button" id="isbn-search-button" class="btn btn-info">Search</button>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Search field for book title --}}
+
+  <div class="col-md-3">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="authorSearch">Author</label>
+        <input type="text" class="form-control" id="authorSearch">
+        <button type="button" id="author-search-button" class="btn btn-info">Search</button>
+      </div>
+    </div>
+  </div>
+
 </div>
+
 
 
 <div class="row">

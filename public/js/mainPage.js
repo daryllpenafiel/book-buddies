@@ -69,6 +69,10 @@
 
                 const auth = firebase.auth();
                 const promise = auth.signInWithEmailAndPassword(email, pass);
+                promise.then(function(){
+                    alert("Welcome to Book Buddies!");
+                    window.location.href = './';
+                });
                 promise.catch(e => console.log(e.message));
             });
         });

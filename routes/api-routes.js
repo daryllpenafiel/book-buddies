@@ -1,4 +1,11 @@
 var db = require("../models");
+const Sequelize = require('sequelize');
+const op = Sequelize.Op;
+// const operatorsAliases = {
+//     $eq: op.eq,
+//     $or: op.or,
+// }
+
 
 module.exports = function (app) {
 
@@ -76,38 +83,62 @@ module.exports = function (app) {
     //for displaying books by category
     app.get("/api/filter-by-category/:category", function (req, res) {
         db.books.findAll({
-                where: {
-                    category: req.params.category
-                }
-            })
-            .then(function (dbBooks) {
-                res.json(dbBooks);
-            });
+            where: {
+                [op.or]: [{
+                    category: {
+                        [op.like]: `%${req.params.category}%`
+                    }
+                }]
+            }
+        })
+        .then(function (dbBooks) {
+            res.json(dbBooks);
+        });
     });
 
-
-    app.get("/api/guests/", function (req, res) {
-        if (req.params.id) {
-            db.guest.findById(req.params.id).then(function (guest) {
-                res.json(guest);
-            });
-        } else {
-            db.guest.findAll({}).then(function (guest) {
-                res.json(guest);
-            });
-        }
-    });
 
     //for querying books by title
     app.get("/api/search-by-title/:title", function (req, res) {
         db.books.findAll({
                 where: {
-                    title: req.params.title
+                    [op.or]: [{
+                        title: {
+                            [op.like]: `%${req.params.title}%`
+                        }
+                    }]
                 }
             })
             .then(function (dbBooks) {
                 res.json(dbBooks);
             });
+    });
+
+    //for querying books by author
+    app.get("/api/search-by-author/:author", function (req, res) {
+        db.books.findAll({
+                where: {
+                    [op.or]: [{
+                        author: {
+                            [op.like]: `%${req.params.author}%`
+                        }
+                    }]
+                }
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
+    });
+
+     //for querying books by isbn
+     app.get("/api/search-by-isbn/:isbn", function (req, res) {
+        db.books.findAll({
+            where: {
+                isbn: req.params.isbn
+            }
+        })
+        .then(function (dbBooks) {
+            res.json(dbBooks);
+        });
     });
 
 
