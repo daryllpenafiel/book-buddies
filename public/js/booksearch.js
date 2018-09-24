@@ -26,6 +26,16 @@ $(document).ready(function () {
                     break;
                 case "manual":
                     console.log("manual");
+                    firebase.auth().onAuthStateChanged(firebaseUser => {
+                        var fbemail;
+                
+                        if (firebaseUser) {
+                            fbemail = firebaseUser.email;
+                        } else {
+                            fbemail = "Please log in to to post a listing."
+                        }
+                        $("#manual-sellerEmail").text(fbemail);
+                    });
                     $('#manualFormModal').modal('show');
                     break;
                 default:
@@ -81,19 +91,6 @@ $(document).ready(function () {
     })
 
     $(document).on("click", "#manual-post-to-DB", function () {
-
-        var fbemail;
-
-        //Auth State
-        firebase.auth().onAuthStateChanged(firebaseUser => {
-
-            if (firebaseUser) {
-                fbemail = firebaseUser.email;
-            } else {
-                console.log("Not logged in");
-            }
-            $("#manual-sellerEmail").text(fbemail);
-        });
 
         var bookTitle = $("#manual-title-input").val();
         var bookAuthor = $("#manual-author-input").val();
@@ -160,15 +157,6 @@ $(document).on("click", ".confirm-book-button", function () {
         var sellerEmail = $("#sellerEmail").text();
         var id = $("#userId").val();
 
-        // console.log(`title: ${bookTitle}`);
-        // console.log(`authors: ${bookAuthor}`);
-        // console.log(`category: ${bookCategory}`);
-        // console.log(`ISBN: ${bookISBN}`);
-        // console.log(`Condition: ${bookCondition}`);
-        // console.log(`Price: ${bookPrice}`);
-        // console.log(`Comments: ${bookComments}`);
-        // console.log(`Email: ${sellerEmail}`);
-        // console.log("-----------------------------");
 
         if (!bookPrice) {
             alert("Please fill in the asking price field.")

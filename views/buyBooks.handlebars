@@ -3,17 +3,31 @@
   <div class="col-md-4">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Category</label>
+        <label class="input-group-text" for="categorySelectGroup">Category</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect01">
-        <option selected>Choose...</option>
-        <option value="1">Fiction</option>
-        <option value="2">Computers</option>
-        <option value="3">Business</option>
+      <select class="custom-select" id="categorySelectGroup">
+        <option selected>All</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Computers">Computers</option>
+        <option value="Business">Business</option>
+        <option value="Cooking">Cooking</option>
       </select>
-          <button type="button" class="btn btn-info">Search</button>
+      <button type="button" id="category-filter-button" class="btn btn-info">Filter</button>
     </div>
 
+  </div>
+</div>
+
+{{!-- Search filed for book title --}}
+<div class="row category-filters-row">
+  <div class="col-md-4">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="titleSearch">Title</label>
+        <input type="text" class="form-control" id="titleSearch">
+        <button type="button" id="title-search-button" class="btn btn-info">Search</button>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -73,6 +73,43 @@ module.exports = function (app) {
             });
     });
 
+    //for displaying books by category
+    app.get("/api/filter-by-category/:category", function (req, res) {
+        db.books.findAll({
+                where: {
+                    category: req.params.category
+                }
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
+    });
+
+
+    app.get("/api/guests/", function (req, res) {
+        if (req.params.id) {
+            db.guest.findById(req.params.id).then(function (guest) {
+                res.json(guest);
+            });
+        } else {
+            db.guest.findAll({}).then(function (guest) {
+                res.json(guest);
+            });
+        }
+    });
+
+    //for querying books by title
+    app.get("/api/search-by-title/:title", function (req, res) {
+        db.books.findAll({
+                where: {
+                    title: req.params.title
+                }
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
+    });
+
 
     //for getting a single book from DB
     app.get("/api/viewBook/:id", function (req, res) {
@@ -85,47 +122,5 @@ module.exports = function (app) {
                 res.json(dbBooks);
             });
     });
-
-
-    // app.get("/api/colors", function (req, res) {
-    //     console.log(res);
-
-    //     if (req.params.id) {
-    //         db.colors.findById(req.params.id).then(function (dbColors) {
-    //             res.json(dbColors);
-    //         });
-    //     } else {
-    //         db.colors.findAll({}).then(function (dbColors) {
-    //             res.json(dbColors);
-    //             console.log(dbColors);
-    //         });
-    //     }
-    // });
-
-    // //for getting HTML colors only
-    // app.get("/api/colors/html", function (req, res) {
-    //     db.colors.findAll({
-    //             where: {
-    //                 colorSource: "HTML color"
-    //             }
-    //         })
-    //         .then(function (dbColors) {
-    //             res.json(dbColors);
-    //         });
-    // });
-
-    // //for getting by color Family only
-    // app.get("/api/filter-by-color/:colorFamily", function (req, res) {
-    //     db.colors.findAll({
-    //             where: {
-    //                 colorFamily: req.params.colorFamily
-    //             }
-    //         })
-    //         .then(function (dbColors) {
-    //             res.json(dbColors);
-    //         });
-    // });
-
-
 
 };

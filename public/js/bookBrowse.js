@@ -25,7 +25,51 @@ $(document).ready(function () {
         });
     };
 
+    //-----------FILTER BY CATEGORY---------------------------//
+  
+    $(document).on("click","#category-filter-button",function(){
+        var categorySelected = $("#categorySelectGroup").val();
+        if (categorySelected === "All"){
+            getBooks();
+        } else {
+            filterByCategory(categorySelected);
+        }
+    });
+
+    function filterByCategory(category) {
+        $.get("/api/filter-by-category/"+category, function (bookData) {
+            var rowsToAdd = [];
+            for (var i = 0; i < bookData.length; i++) {
+                rowsToAdd.push(createBookRow(bookData[i]));
+            }
+            renderBookList(rowsToAdd);
+        });
+    };
+
+
+    //-----------SEARCH BY TITLE---------------------------//
+    $(document).on("click","#title-search-button",function(){
+        var titleToSearch = $("#titleSearch").val();
+        console.log(titleToSearch);
+        searchByTitle(titleToSearch);
+    })
+
+    function searchByTitle(title) {
+        $.get("/api/search-by-title/"+title, function (bookData) {
+            var rowsToAdd = [];
+            for (var i = 0; i < bookData.length; i++) {
+                rowsToAdd.push(createBookRow(bookData[i]));
+            }
+            renderBookList(rowsToAdd);
+        });
+    };
+
+
+     //-----------RENDER ROWS---------------------------//
+
     function renderBookList(rows) {
+        $("tbody").empty();
+
         if (rows.length) {
             bookList.prepend(rows);
         } else {
