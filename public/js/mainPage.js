@@ -16,21 +16,21 @@
         postalCode = $("#reg-userPostalCode").val().trim();
         school = $("#reg-userSchool").val().trim();
 
-        if (!firstName || !lastName || !email || !phoneNumber || !userName || !postalCode) {
-            alert("Please fill in all fields.");
-        } else {
-            postUser({
-                firstName: firstName,
-                lastName: lastName,
-                number: phoneNumber,
-                email: email,
-                postalCode: postalCode,
-                userName: userName,
-                school: school
-            })
-            resetForm();
-        };
-    }
+        postUser({
+            firstName: firstName,
+            lastName: lastName,
+            number: phoneNumber,
+            email: email,
+            postalCode: postalCode,
+            userName: userName,
+            school: school
+        });
+
+        resetForm();
+        alert("Account created!");
+        reloadHome();
+    };
+
 
     //route for posting a new user
     function postUser(newUserData) {
@@ -116,16 +116,27 @@
                 console.log(email);
                 console.log(pass);
 
-                const auth = firebase.auth();
-                const promise = auth.createUserWithEmailAndPassword(email, pass);
-                promise.then(function () {
-                    handleUserFormSubmit();
-                });
-                promise.catch(e => {
-                    console.log(e.message);
-                    alert(e.message);
-                });
-            });
+                firstName = $("#reg-firstName").val().trim();
+                lastName = $("#reg-lastName").val().trim();
+                phoneNumber = $("#reg-userPhone").val().trim();
+                // email = $("#reg-inputEmail").val().trim();
+                userName = $("#reg-userName").val().trim();
+                postalCode = $("#reg-userPostalCode").val().trim();
+                school = $("#reg-userSchool").val().trim();
 
+                if (!firstName || !lastName || !email || !phoneNumber || !userName || !postalCode) {
+                    alert("Please fill in all fields.");
+                } else {
+                    const auth = firebase.auth();
+                    const promise = auth.createUserWithEmailAndPassword(email, pass);
+                    promise.then(function () {
+                        handleUserFormSubmit();
+                    });
+                    promise.catch(e => {
+                        console.log(e.message);
+                        alert(e.message);
+                    });
+                };
+            })
         })
     });
