@@ -1,10 +1,37 @@
-$(document).ready(function(){
+$(document).ready(function () {
+
+    var logoutModal = `<div class="modal" tabindex="-1" role="dialog" id="logout-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>You have been logged out. See ya!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+
+    function reloadHome() {
+        window.location.href = './';
+    };
 
     $("#log-out-button").on("click", function () {
         event.preventDefault();
-        firebase.auth().signOut().then(function(){
-            alert("You have been signed out. See ya!");
-            window.location.href = './';
+        firebase.auth().signOut().then(function () {
+            // alert("You have been signed out. See ya!");
+
+            $(document.body).append(logoutModal);
+            $("#logout-modal").modal("show");
+            setTimeout(reloadHome, 2000);
+
         });
     });
 

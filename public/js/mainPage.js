@@ -51,8 +51,28 @@
         $("#reg-userSchool").val("")
     }
 
+    function reloadHome() {
+        window.location.href = './';
+    };
 
     $(document).ready(function () {
+
+        var loginModal = `<div class="modal" tabindex="-1" role="dialog" id="login-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Welcome to Book Buddies!</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
 
         //Log in
         $("#log-in-modal-button").on("click", function () {
@@ -69,11 +89,17 @@
 
                 const auth = firebase.auth();
                 const promise = auth.signInWithEmailAndPassword(email, pass);
-                promise.then(function(){
-                    alert("Welcome to Book Buddies!");
-                    window.location.href = './';
+                promise.then(function () {
+                    $("#loginErrorMessage").empty();
+                    $('#loginModal').modal('hide');
+                    $(document.body).append(loginModal);
+                    $("#login-modal").modal("show");
+                    setTimeout(reloadHome, 2000);
                 });
-                promise.catch(e => console.log(e.message));
+                promise.catch(e => {
+                    $("#loginErrorMessage").empty();
+                    $("#loginErrorMessage").append(e.message);
+                });
             });
         });
 
@@ -92,7 +118,7 @@
 
                 const auth = firebase.auth();
                 const promise = auth.createUserWithEmailAndPassword(email, pass);
-                promise.then(function(){
+                promise.then(function () {
                     handleUserFormSubmit();
                 });
                 promise.catch(e => {
