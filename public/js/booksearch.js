@@ -184,6 +184,13 @@ function postBooktoDB(newBookData) {
     })
 };
 
+$(document).on("keypress",function(){
+    if (event.keyCode === 13) {
+        console.log("enter");
+        $("#book-search-button").click();
+    }
+});
+
 function resetForm() {
     console.log("reset done!");
     $("#condition-select").val("");

@@ -43,6 +43,7 @@ $(document).ready(function () {
                 rowsToAdd.push(createBookRow(bookData[i]));
             }
             renderBookList(rowsToAdd);
+            resetSearch();
         });
     };
 
@@ -51,6 +52,7 @@ $(document).ready(function () {
     $(document).on("click", "#title-search-button", function () {
         var titleToSearch = $("#titleSearch").val();
         console.log(titleToSearch);
+
         searchByTitle(titleToSearch);
     })
 
@@ -61,6 +63,7 @@ $(document).ready(function () {
                 rowsToAdd.push(createBookRow(bookData[i]));
             }
             renderBookList(rowsToAdd);
+            resetSearch();
         });
     };
 
@@ -78,6 +81,7 @@ $(document).ready(function () {
                 rowsToAdd.push(createBookRow(bookData[i]));
             }
             renderBookList(rowsToAdd);
+            resetSearch();
         });
     };
 
@@ -96,6 +100,7 @@ $(document).ready(function () {
                 rowsToAdd.push(createBookRow(bookData[i]));
             }
             renderBookList(rowsToAdd);
+            resetSearch();
         });
     };
 
@@ -115,8 +120,15 @@ $(document).ready(function () {
     // Function for handling what to render when there are no books
     function renderEmpty() {
         var alertDiv = $("<div>");
-        alertDiv.text("No books in the database.");
+        alertDiv.text("No books found.");
         bookList.append(alertDiv);
     }
+    
+    function resetSearch(){
+        $("#titleSearch").val("");
+        $("#isbnSearch").val("");
+        $("#authorSearch").val("");
+        $("#categorySelectGroup").val("All");
+    };
 
 });
