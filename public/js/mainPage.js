@@ -75,33 +75,29 @@
 
 
         //Log in
-        $("#log-in-modal-button").on("click", function () {
+        $("#log-in-button").on("click", function () {
             event.preventDefault();
-            $('#loginModal').modal('show');
+            var email = $("#inputEmail").val();
+            var pass = $("#inputPassword").val();
 
-            $("#log-in-button").on("click", function () {
-                event.preventDefault();
-                var email = $("#inputEmail").val();
-                var pass = $("#inputPassword").val();
+            console.log(email);
+            console.log(pass);
 
-                console.log(email);
-                console.log(pass);
-
-                const auth = firebase.auth();
-                const promise = auth.signInWithEmailAndPassword(email, pass);
-                promise.then(function () {
-                    $("#loginErrorMessage").empty();
-                    $('#loginModal').modal('hide');
-                    $(document.body).append(loginModal);
-                    $("#login-modal").modal("show");
-                    setTimeout(reloadHome, 2000);
-                });
-                promise.catch(e => {
-                    $("#loginErrorMessage").empty();
-                    $("#loginErrorMessage").append(e.message);
-                });
+            const auth = firebase.auth();
+            const promise = auth.signInWithEmailAndPassword(email, pass);
+            promise.then(function () {
+                $("#loginErrorMessage").empty();
+                $('#loginModal').modal('hide');
+                $(document.body).append(loginModal);
+                $("#login-modal").modal("show");
+                setTimeout(reloadHome, 2000);
+            });
+            promise.catch(e => {
+                $("#loginErrorMessage").empty();
+                $("#loginErrorMessage").append(e.message);
             });
         });
+
 
         //Sign up/Register
         $("#sign-up-modal-button").on("click", function () {

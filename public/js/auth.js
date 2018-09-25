@@ -45,14 +45,14 @@ $(document).ready(function () {
             console.log(uid);
             $("#log-out-button").removeClass("d-none");
             $("#my-ads-button").removeClass("d-none");
-            $("#log-in-modal-button").addClass("d-none");
-            $("#sign-up-modal-button").addClass("d-none");
+            $(".login-section").addClass("d-none");
+            $(".personal-section").removeClass("d-none");
         } else {
             console.log("Not logged in");
             $("#log-out-button").addClass("d-none");
             $("#my-ads-button").addClass("d-none");
-            $("#log-in-modal-button").removeClass("d-none");
-            $("#sign-up-modal-button").removeClass("d-none");
+            $(".login-section").removeClass("d-none")
+            $(".personal-section").addClass("d-none");
         }
     });
 

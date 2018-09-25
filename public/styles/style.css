@@ -25,6 +25,12 @@ body {
 /* ------------------- Main Page ------------------- */
 .jumbotron {
     background-color: rgb(255,160,122,0.7);
+    margin-bottom: 0;
+}
+
+.steps {
+    background-color: rgb(255, 255, 255, 0.9);
+    padding: 2rem 0;
 }
 
 .user-form-container {
@@ -32,16 +38,26 @@ body {
     margin: auto;
 }
 
-.login-modal-content {
+.login-section {
     padding: 40px;
     background-color: rgb(255, 255, 255, 0.9);
 }
 
+.personal-section {
+    padding: 40px;
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+.body-limit {
+    max-width: 960px;
+    margin: auto;
+}
+
 /* ------------------- Sign up form ------------------- */
-/* 
-label{
-    margin-top: 15px;
-} */
+
+.login-modal-content{
+    padding: 40px;
+}
 
 
 /* ---------------------- Book Search ----------------- */
