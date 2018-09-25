@@ -39,7 +39,11 @@ module.exports = function (sequelize, DataTypes)
         },
         comments: {
             type: DataTypes.STRING
-        }
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }    
         // userID: {
         //     type: DataTypes.STRING,
         //     allowNull: false
@@ -47,7 +51,7 @@ module.exports = function (sequelize, DataTypes)
     });
 
     books.associate = function (models) {
-        books.belongsTo(models.users);
+        books.belongsTo(models.users,{targetKey:'email',foreignKey:'email'});
     }
 
     return books;

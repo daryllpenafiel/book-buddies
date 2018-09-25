@@ -99,7 +99,7 @@ $(document).ready(function () {
         var bookCondition = $("#manual-condition-select").val();
         var bookPrice = $("#manual-price-input").val();
         var bookComments = $("#manual-comment-input").val();
-        var id = $("#manual-userId").val();
+        var sellerEmail = $("#manual-sellerEmail").text();
 
         if (!bookPrice) {
             alert("Please fill in the asking price field.")
@@ -112,8 +112,7 @@ $(document).ready(function () {
                 condition: bookCondition,
                 price: bookPrice,
                 comments: bookComments,
-                // email: sellerEmail
-                userId: id
+                email: sellerEmail
             })
         }
     });
@@ -170,8 +169,8 @@ $(document).on("click", ".confirm-book-button", function () {
                 condition: bookCondition,
                 price: bookPrice,
                 comments: bookComments,
-                // email: sellerEmail
-                userId: id
+                email: sellerEmail
+                // userId: id
             })
         }
     });

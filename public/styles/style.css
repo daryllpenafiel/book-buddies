@@ -26,6 +26,7 @@ body {
 .jumbotron {
     background-color: rgb(255,160,122,0.7);
     margin-bottom: 0;
+    min-height: 400px;
 }
 
 .steps {
