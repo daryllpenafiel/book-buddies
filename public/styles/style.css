@@ -29,6 +29,10 @@ body {
     min-height: 400px;
 }
 
+.left-text{
+    text-align: left!important;
+}
+
 .steps {
     background-color: rgb(255, 255, 255, 0.9);
     padding: 2rem 0;

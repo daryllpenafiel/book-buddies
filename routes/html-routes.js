@@ -21,16 +21,22 @@ module.exports = function (app) {
     res.render(path.join(__dirname, "../views/viewUsers"));
   });
 
-  
+
   //sell page
   app.get("/buy", function (req, res) {
     res.render(path.join(__dirname, "../views/buyBooks"));
   });
 
+  //myAds page
+  app.get("/myAds", function (req, res) {
+    res.render(path.join(__dirname, "../views/myads"));
+  });
+
+
   app.get("/createUser", function (req, res) {
     res.render(path.join(__dirname, "../views/createUser"));
   });
-    
+
   //single book view Page
   app.get("/viewBook", function (req, res) {
     res.render(path.join(__dirname, "../views/viewBook"));

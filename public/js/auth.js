@@ -53,6 +53,8 @@ $(document).ready(function () {
             $("#my-ads-button").addClass("d-none");
             $(".login-section").removeClass("d-none")
             $(".personal-section").addClass("d-none");
+            $("#manual-post-to-DB").prop("disabled",true);
+            $("#post-to-DB").prop("disabled",true);
         }
     });
 

@@ -1,63 +1,3 @@
-<div class="row category-filters-row">
-
-{{!-- Dropdpown for book categories --}}
-
-  <div class="col-md-3">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="categorySelectGroup">Category</label>
-      </div>
-      <select class="custom-select" id="categorySelectGroup">
-        <option selected>All</option>
-        <option value="Fiction">Fiction</option>
-        <option value="Computers">Computers</option>
-        <option value="Business">Business</option>
-        <option value="Cooking">Cooking</option>
-      </select>
-      <button type="button" id="category-filter-button" class="btn btn-info">Filter</button>
-    </div>
-
-  </div>
-
-{{!-- Search field for book title --}}
-
-  <div class="col-md-3">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="titleSearch">Title</label>
-        <input type="text" class="form-control" id="titleSearch">
-        <button type="button" id="title-search-button" class="btn btn-info">Search</button>
-      </div>
-    </div>
-  </div>
-
-{{!-- Search field for ISBN --}}
-    <div class="col-md-3">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="isbnSearch">ISBN</label>
-        <input type="text" class="form-control" id="isbnSearch">
-        <button type="button" id="isbn-search-button" class="btn btn-info">Search</button>
-      </div>
-    </div>
-  </div>
-
-  {{!-- Search field for book title --}}
-
-  <div class="col-md-3">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="authorSearch">Author</label>
-        <input type="text" class="form-control" id="authorSearch">
-        <button type="button" id="author-search-button" class="btn btn-info">Search</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <div class="author-container">
@@ -71,6 +11,7 @@
             <th>Category</th>
             <th>Condition</th>
             <th>Price</th>
+            <th>Delete</th>
             {{!-- <th>Comments</th> --}}
           </tr>
         </thead>
