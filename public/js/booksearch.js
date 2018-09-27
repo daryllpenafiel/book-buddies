@@ -79,8 +79,8 @@ $(document).ready(function () {
                         `<p class="card-text card-bookAuthor" data-value="${bookAuthor}">Author(s): ${bookAuthor}</p>` +
                         `<p class="card-text card-bookCategory" data-value="${bookCategory}">Category: ${bookCategory}</p>` +
                         `<p class="card-text card-bookISBN" data-value="${bookISBN}">ISBN: ${bookISBN}</p>` +
-                        `<a href="${bookLink}" target="_blank" class="btn btn-warning btn-google" image-link="${bookThumbnail}">Google Books Page</a>` +
-                        `<a target="_blank" class="btn btn-success confirm-book-button">Create posting</a>` +
+                        `<a href="${bookLink}" target="_blank" class="btn btn-info btn-google" image-link="${bookThumbnail}">Google Books Page</a>` +
+                        `<a target="_blank" class="btn btn-primary confirm-book-button">Create posting</a>` +
                         `</div>` +
                         `</div>`;
 
@@ -92,10 +92,12 @@ $(document).ready(function () {
             }).catch(function () {
                 var noResults = `<div class="container">
                 <div class="jumbotron mt-4">
-                    <h4 class="display-4 text-center">No results found. Try another search or fill in the book information manually.</h4> <br>
+                    <h5 class="display-4 text-center">No results found. Try another search or fill in the book information manually.</h5> <br>
                 </div></div>`;
-                $(".results-here").append(noResults);
-            })
+
+                if ($(".results-here").children().length === 0)
+                    $(".results-here").append(noResults);
+            });
         }
 
     })
@@ -139,7 +141,10 @@ $(document).on("click", ".confirm-book-button", function () {
             fbemail = firebaseUser.email;
         } else {
             fbemail = "Please log in to to post a listing."
+            $("#manual-sellerEmail").addClass("text-danger");
+            $("#sellerEmail").addClass("text-danger");
         }
+        $("#manual-sellerEmail").text(fbemail);
         $("#sellerEmail").text(fbemail);
     });
 

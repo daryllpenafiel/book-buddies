@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     function createBookRow(bookData) {
         var newTr = $("<tr>");
-        var deleteButton = $("<input>").addClass('btn btn-primary delete-item-button').attr("type", 'delete').attr("value", 'Delete').attr("id", bookData.id).attr("data-toggle", "modal").attr("data-target", "#delete-modal");
+        var deleteButton = $("<input>").addClass('btn btn-warning delete-item-button').attr("type", 'delete').attr("value", 'Delete').attr("id", bookData.id).attr("data-toggle", "modal").attr("data-target", "#delete-modal");
 
         newTr.data("books", bookData);
         newTr.append("<td>" + "<a href=" + "'./viewBook?bid=" + bookData.id + "'>" + bookData.title + "</a></td>");

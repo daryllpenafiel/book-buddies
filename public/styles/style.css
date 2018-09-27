@@ -2,12 +2,19 @@ body {
     text-align: center;
     margin: auto;
     box-sizing: border-box;
-    background-color: rgb(255, 160, 122, 0.7);
-    background-image: url("/images/books2.jpg");
+    background-color: rgb(152, 255, 221, 0.7);
+    background-image: url("/images/booksresponsive.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Poppins', sans-serif;
 }
+
+.footer{
+    background-color: lightgray;
+    text-align: center;
+    padding: 8px;
+}
+
 
 .card {
     display: inline-block;
@@ -25,17 +32,32 @@ body {
 
 /* ------------------- Main Page ------------------- */
 .jumbotron {
-    background-color: rgb(255, 160, 122, 0.7);
+    background-color: rgb(152, 212, 255, 0.8);
     margin-bottom: 0;
     min-height: 400px;
 }
 
-.jumbo-text {
-    padding: 10%;
+.login-image {
+    border-radius: 50%;
+    height: 8rem;
+    width: auto;
 }
 
+.jumbo-image {
+    height: 14rem;
+    width: auto;
+}
+
+.lead{
+    color: gray;
+    font-weight: 500;
+}
+/* .jumbo-text {
+
+} */
+
 .left-text {
-    text-align: left !important;
+    text-align: left;
 }
 
 .steps {
@@ -72,7 +94,7 @@ body {
 
 /* ---------------------- Book Search ----------------- */
 .book-search-container {
-    background-color: rgb(255, 160, 122, 0.7);
+    background-color: rgb(152, 212, 255, 0.8);
     padding: 20px 0px;
     text-align: center;
 }
@@ -103,45 +125,44 @@ body {
 
 .category-filters-row {
     margin: auto;
-    background-color: rgb(255, 160, 122, 0.7);
+    background-color: rgb(152, 212, 255, 0.8);
     padding-top: 10px;
     text-align: center;
 }
 
-
-
 /* ------------------------ Book View ----------------- */
 .book-view {
-    min-width: 600px;
+    min-width: 400px;
     max-width: 960px;
     background-color: rgb(255, 255, 255, 0.9);
-    margin: 60px auto;
-    padding: 40px;
-    border-radius: 5%;
+    margin: 30px auto;
+    padding: 30px;
 }
 
 .book-view-book-details {
     text-align: center;
-    border: 1px solid darkslategray;
-    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 20px;
 }
 
 .book-view-user-details {
     text-align: center;
-    border: 1px solid darkslategray;
-    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 20px;
 }
 
 .book-image {
     width: 15rem;
     height: auto;
+    margin-bottom: 20px;
 }
 
 .user-image {
-    width: 12rem;
+    width: 10rem;
     height: auto;
     border-radius: 50%;
-    border: solid darkgoldenrod 1px;
+    border: solid black 1px;
+    margin-bottom: 30px;
 }
 
 .blur {
@@ -155,3 +176,9 @@ body {
     background-color: #ccc;
 }
 
+/* My ads */
+
+.delete-item-button {
+    max-width: 110px;
+    margin: auto 10px;
+}
