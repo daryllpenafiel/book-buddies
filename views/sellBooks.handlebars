@@ -112,10 +112,24 @@
                     <div class="form-group">
                         <label for="sel1">Category:</label>
                         <select class="form-control" id="manual-category-select">
-                            <option>Computers</option>
-                            <option>Fiction</option>
-                            <option>Business</option>
-                            <option>Math</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Computers">Computers</option>
+                            <option value="Business">Business</option>
+                            <option value="Economics">Economics</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Literature">Literature</option> 
+                            <option value="History">History</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Music">Music</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Psychology">Psychology</option>
+                            <option value="Medicine">Medicine</option>
+                            <option value="Journalism">Journalism</option>
+                            <option value="Education">Education</option>
+                            <option value="Law">Law</option>
+                            <option value="Social Sciences">Social Sciences</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -125,7 +139,7 @@
                     <div class="form-group">
                         <label for="sel1">Book condition:</label>
                         <select class="form-control" id="manual-condition-select">
-                            <option>Pretty much brand new</option>
+                            <option>Almost New</option>
                             <option>Mint</option>
                             <option>Fair</option>
                             <option>Poor</option>
@@ -155,19 +169,19 @@
 
 {{!-- Modal for book posting success --}}
 <div class="modal" tabindex="-2" role="dialog" id="messageModal">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title">Message</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="messageModal-text"></p>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-      <p class="messageModal-text"></p>
-    </div>
-  </div>
-</div>
 </div>
 
 

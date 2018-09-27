@@ -48,6 +48,32 @@ module.exports = function (app) {
             });
     });
 
+    //for getting my ads
+    app.get("/api/myAds/:email", function (req, res) {
+        db.books.findAll({
+                where: {
+                    email: req.params.email
+                },
+                include: [db.users]
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
+    });
+
+    //for deleting a single ad of mine
+    app.delete("/api/myAds/:id", function (req, res) {
+        db.books.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function (dbBooking) {
+                res.json(dbBooking);
+            });
+    });
+
+
     // //for getting a single user from DB
     // app.get("/api/users/:email", function (req, res) {
     //     db.users.findOne({
@@ -83,17 +109,17 @@ module.exports = function (app) {
     //for displaying books by category
     app.get("/api/filter-by-category/:category", function (req, res) {
         db.books.findAll({
-            where: {
-                [op.or]: [{
-                    category: {
-                        [op.like]: `%${req.params.category}%`
-                    }
-                }]
-            }
-        })
-        .then(function (dbBooks) {
-            res.json(dbBooks);
-        });
+                where: {
+                    [op.or]: [{
+                        category: {
+                            [op.like]: `%${req.params.category}%`
+                        }
+                    }]
+                }
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
     });
 
 
@@ -129,16 +155,16 @@ module.exports = function (app) {
             });
     });
 
-     //for querying books by isbn
-     app.get("/api/search-by-isbn/:isbn", function (req, res) {
+    //for querying books by isbn
+    app.get("/api/search-by-isbn/:isbn", function (req, res) {
         db.books.findAll({
-            where: {
-                isbn: req.params.isbn
-            }
-        })
-        .then(function (dbBooks) {
-            res.json(dbBooks);
-        });
+                where: {
+                    isbn: req.params.isbn
+                }
+            })
+            .then(function (dbBooks) {
+                res.json(dbBooks);
+            });
     });
 
 

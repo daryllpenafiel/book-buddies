@@ -55,6 +55,9 @@ $(document).ready(function () {
             $(".personal-section").addClass("d-none");
             $("#manual-post-to-DB").prop("disabled",true);
             $("#post-to-DB").prop("disabled",true);
+            $(".book-view-user-details").addClass("blur");
+            $("#contact-poster-button").prop("disabled",true);
+            $("#bookViewBlurMessage").text("You must be logged in to contact the poster.");
         }
     });
 
