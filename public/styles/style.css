@@ -130,6 +130,7 @@ body {
     text-align: center;
 }
 
+
 /* ------------------------ Book View ----------------- */
 .book-view {
     min-width: 400px;
@@ -137,6 +138,12 @@ body {
     background-color: rgb(255, 255, 255, 0.9);
     margin: 30px auto;
     padding: 30px;
+}
+
+.book-view-map{
+    width: 70%;
+    margin-bottom: 20px;
+    border: solid 1px darkslategray;
 }
 
 .book-view-book-details {
@@ -158,7 +165,7 @@ body {
 }
 
 .user-image {
-    width: 10rem;
+    width: 8rem;
     height: auto;
     border-radius: 50%;
     border: solid black 1px;

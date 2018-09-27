@@ -9,7 +9,7 @@ function getBooks(bid) {
 
 function inserBookData(bookData) {
     $(".book-title").append(bookData.title);
-    $(".book-image").attr("src",bookData.image);
+    $(".book-image").attr("src", bookData.image);
     $(".book-isbn").append(bookData.isbn);
     $(".book-author").append(bookData.author);
     $(".book-price").append("$" + bookData.price);
@@ -40,15 +40,21 @@ function getUrlParameter(name) {
 };
 
 
-
-
 $(document).ready(function () {
     var bid = getUrlParameter('bid');
     getBooks(bid);
 
+    $(document).on("click", "#contact-poster-button", function () {
+        var userEmail = $(".user-email").text();
+        $("#recipient-name").attr("value",userEmail).prop("disabled",true);
+        console.log(userEmail);
+        $('#contact-form-modal').modal('show');
 
-    $(document).on("click", "#contact-poster-button",function() {
-        $('#contact-poster-modal').modal('show');
+        $(document).on("click", "#send-message-button", function () {
+            $('#contact-form-modal').modal('hide');
+            $('#message-sent-modal').modal('show');
+        });
+
     });
 
 });
