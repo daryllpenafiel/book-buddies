@@ -4,7 +4,7 @@ body {
     box-sizing: border-box;
     background-color: #3d81f4;
     background-image: url("/images/yanna1.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
     font-family: 'Raleway', sans-serif;
 }
@@ -70,7 +70,7 @@ body {
 
 .have-no-fear {
     background-color: rgb(255, 255, 255);
-    padding: 3rem 0;
+    padding: 4rem 0;
     color: black;
     font-size: 18px;
 }

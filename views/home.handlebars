@@ -69,7 +69,8 @@
     <div class="body-limit">
       <div class="row">
         <div class="col-md-12">
-          <p>The average students spends $1,200 a year on textbooks and supplies.<br> Tuition fees are skyrocketing and student debts are at a record high. </p>
+          <p>The average students spends $1,200 a year on textbooks and supplies.<br> Tuition fees are skyrocketing and
+            student debts are at a record high. </p>
           <h3 class="bb-is-here">Have no fear. Book buddies is here.</h3>
           <p> Book buddies is an avenue for buying and selling used textbooks aimed at making educational materials
             more
@@ -92,7 +93,8 @@
       <div class="row">
         <div class="col-md-4 step-block">
           <h4 class="step-num">Step 1 - INFO</h4>
-          <p class="step-desc">Easily gather your book's information by entering in the ISBN or title in the book search
+          <p class="step-desc">Easily gather your book's information by entering in the ISBN or title in the book
+            search
             area. Powered by Google Books API.</p>
         </div>
         <div class="col-md-4 step-block">
@@ -126,19 +128,22 @@
           <p>Sign up information</a></p>
         </div>
 
-        <div class="form-label-group">
-          <label for="reg-inputEmail">Email address</label>
-          <input type="email" id="reg-inputEmail" class="form-control" placeholder="Email address" autocomplete="email"
-            required autofocus>
-          {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          --}}
-          <div class="invalid-feedback"> Please fill in this field. </div>
-
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="reg-inputEmail">Email address</label>
+              <input type="email" id="reg-inputEmail" class="form-control" placeholder="Email address" autocomplete="email"
+                required autofocus>
+              {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              --}}
+              <div class="invalid-feedback"> Please fill in this field. </div>
+            </div>
+          </div>
         </div>
 
         <div class="row">
           <div class="col-md-6">
-            <div class="form-label-group">
+            <div class="form-group">
               <label for="reg-inputPassword">Password</label>
               <input type="password" id="reg-inputPassword" class="form-control" placeholder="Password" autocomplete="current-password"
                 required>
@@ -153,7 +158,6 @@
               <div class="invalid-feedback"> Passwords must match. </div>
             </div>
           </div>
-
         </div>
 
         <div class="row">
@@ -222,10 +226,34 @@
           <p id="signUpErrorMessage" class="text-danger"></p>
         </div>
 
-        <button id="sign-up-button" class="btn btn-lg btn-primary" type="submit">Sign Up</button>
-        <p class="mt-5 mb-3 text-muted text-center">&copy; 2018</p>
+        <div class="form-label-group">
+          <p id="signUpErrorMessage" class="text-danger"></p>
+        </div>
+
+        <button id="sign-up-button" class="btn btn-primary" type="submit">Sign Up</button>
+        <p class="mt-3 mb-3 text-muted text-center">&copy; 2018</p>
       </form>
 
+    </div>
+  </div>
+</div>
+
+<!--Account Created Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="account-created-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Book Buddies</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Welcome. Your account has been created!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>

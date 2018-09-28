@@ -8,6 +8,9 @@
 
     function handleUserFormSubmit() {
 
+        $('#signUpModal').modal('hide');
+        $('#account-created-modal').modal('show');
+
         firstName = $("#reg-firstName").val().trim();
         lastName = $("#reg-lastName").val().trim();
         phoneNumber = $("#reg-userPhone").val().trim();
@@ -27,8 +30,8 @@
         });
 
         resetForm();
-        alert("Account created!");
-        reloadHome();
+
+        setTimeout(reloadHome, 2000);
     };
 
 
@@ -108,6 +111,7 @@
                 event.preventDefault();
                 var email = $("#reg-inputEmail").val();
                 var pass = $("#reg-inputPassword").val();
+                var passVerify = $("#reg-inputPassword-verify").val();
 
                 console.log(email);
                 console.log(pass);
@@ -115,22 +119,26 @@
                 firstName = $("#reg-firstName").val().trim();
                 lastName = $("#reg-lastName").val().trim();
                 phoneNumber = $("#reg-userPhone").val().trim();
-                // email = $("#reg-inputEmail").val().trim();
                 userName = $("#reg-userName").val().trim();
                 postalCode = $("#reg-userPostalCode").val().trim();
                 school = $("#reg-userSchool").val().trim();
 
                 if (!firstName || !lastName || !email || !phoneNumber || !userName || !postalCode) {
-                    alert("Please fill in all fields.");
+                    $("#signUpErrorMessage").empty();
+                    $("#signUpErrorMessage").text("Please fill in all fields.")
+                } else if (pass !== passVerify) {
+                    $("#signUpErrorMessage").empty();
+                    $("#signUpErrorMessage").text("Please ensure both password fields match.");
                 } else {
+                    $("#signUpErrorMessage").empty();
                     const auth = firebase.auth();
                     const promise = auth.createUserWithEmailAndPassword(email, pass);
                     promise.then(function () {
                         handleUserFormSubmit();
                     });
                     promise.catch(e => {
-                        console.log(e.message);
-                        alert(e.message);
+                        $("#signUpErrorMessage").empty();
+                        $("#signUpErrorMessage").text(e.message);
                     });
                 };
             })
