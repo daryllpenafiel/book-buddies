@@ -1,11 +1,12 @@
 $(document).ready(function () {
     var bookList = $("tbody");
+    $(".myAds-nav").addClass("active");
 
     getBooks();
 
     function createBookRow(bookData) {
         var newTr = $("<tr>");
-        var deleteButton = $("<input>").addClass('btn btn-warning delete-item-button').attr("type", 'delete').attr("value", 'Delete').attr("id", bookData.id).attr("data-toggle", "modal").attr("data-target", "#delete-modal");
+        var deleteButton = $("<input>").addClass('btn btn-warning my-2 delete-item-button').attr("type", 'delete').attr("value", 'Delete ad').attr("id", bookData.id).attr("data-toggle", "modal").attr("data-target", "#delete-modal");
 
         newTr.data("books", bookData);
         newTr.append("<td>" + "<a href=" + "'./viewBook?bid=" + bookData.id + "'>" + bookData.title + "</a></td>");

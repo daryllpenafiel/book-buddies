@@ -41,6 +41,7 @@ function getUrlParameter(name) {
 
 
 $(document).ready(function () {
+    $(".buy-nav").addClass("active");
     var bid = getUrlParameter('bid');
     getBooks(bid);
 

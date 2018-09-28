@@ -1,10 +1,11 @@
 function reloadSellPage() {
     console.log("reload page");
-    window.location.href = './sell';
+    window.location.href = './myAds';
 };
 
 $(document).ready(function () {
 
+    $(".sell-nav").addClass("active");
     var searchKeyword;
     var queryURL;
 
@@ -18,19 +19,27 @@ $(document).ready(function () {
 
             switch (selection) {
                 case "title":
-                    // $("#title-search-input").removeAttr("readonly");
                     searchKeyword = encodeURI($("#title-search-input").val());
-                    queryURL = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + searchKeyword;
-                    console.log(queryURL);
-                    performBookSearch(queryURL);
-                    break;
+                    if (!searchKeyword) {
+                        alert("Please enter book title.")
+                        break;
+                    } else {
+                        queryURL = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + searchKeyword;
+                        console.log(queryURL);
+                        performBookSearch(queryURL);
+                        break;
+                    }
                 case "isbn":
-                    // $("#isbn-search-input").removeAttr("readonly");
                     searchKeyword = encodeURI($("#isbn-search-input").val());
-                    queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + searchKeyword;
-                    console.log(queryURL);
-                    performBookSearch(queryURL)
-                    break;
+                    if (!searchKeyword) {
+                        alert("Please enter ISBN.")
+                        break;
+                    } else {
+                        queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + searchKeyword;
+                        console.log(queryURL);
+                        performBookSearch(queryURL)
+                        break;
+                    }
                 case "manual":
                     console.log("manual");
                     firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -113,7 +122,13 @@ $(document).ready(function () {
         var bookComments = $("#manual-comment-input").val();
         var sellerEmail = $("#manual-sellerEmail").text();
 
-        if (!bookPrice) {
+        if (!bookTitle) {
+            alert("Please fill in the title field.")
+        } else if (!bookAuthor) {
+            alert("Please fill in the author field.")
+        } else if (!bookISBN) {
+            alert("Please fill in the ISBN field.")
+        } else if (!bookPrice) {
             alert("Please fill in the asking price field.")
         } else {
             postBooktoDB({
@@ -196,7 +211,7 @@ function postBooktoDB(newBookData) {
             $("#messageModal").modal("show");
             $('#postBookModal').modal("hide");
             $('#manualFormModal').modal("hide");
-            setTimeout (reloadSellPage,1500);
+            setTimeout(reloadSellPage, 1500);
         })
 };
 

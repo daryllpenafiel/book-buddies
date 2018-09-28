@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $(".buy-nav").addClass("active");
     var bookList = $("tbody");
     getBooks();
 
