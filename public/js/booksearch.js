@@ -21,7 +21,8 @@ $(document).ready(function () {
                 case "title":
                     searchKeyword = encodeURI($("#title-search-input").val());
                     if (!searchKeyword) {
-                        alert("Please enter book title.")
+                        $(".messageModal-text").text("Please enter book title.").addClass("text-danger");
+                        $("#messageModal").modal("show");
                         break;
                     } else {
                         queryURL = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + searchKeyword;
@@ -32,7 +33,8 @@ $(document).ready(function () {
                 case "isbn":
                     searchKeyword = encodeURI($("#isbn-search-input").val());
                     if (!searchKeyword) {
-                        alert("Please enter ISBN.")
+                        $(".messageModal-text").text("Please enter ISBN.").addClass("text-danger");
+                        $("#messageModal").modal("show");
                         break;
                     } else {
                         queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + searchKeyword;
