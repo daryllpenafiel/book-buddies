@@ -44,10 +44,6 @@ module.exports = function (sequelize, DataTypes)
             type: DataTypes.STRING,
             allowNull: false
         }    
-        // userID: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
     });
 
     books.associate = function (models) {

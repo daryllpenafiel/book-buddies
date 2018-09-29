@@ -13,9 +13,6 @@ module.exports = function (sequelize, DataTypes) {
         firstName: {
             type: DataTypes.STRING,
             allowNull: false
-            // validate: {
-            //     len: [6]
-            // }
         },
         lastName: {
             type: DataTypes.STRING,
@@ -44,9 +41,6 @@ module.exports = function (sequelize, DataTypes) {
     users.associate = function (models)
     {
         users.hasMany(models.books);
-        // , {
-        //     onDelete: "cascade"
-        // });
     };
 
     return users;

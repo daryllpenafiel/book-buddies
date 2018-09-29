@@ -1,19 +1,17 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "book_buddies",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": 5000
+    "username": "auc6n7siczpvwbxu",
+    "password": "ek4kql2mjgnu7bzq",
+    "database": "anec3ktye56rl7yf",
+    "host": "ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "root",
-    "database": "book_buddies",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": 5000
+    "username": "auc6n7siczpvwbxu",
+    "password": "ek4kql2mjgnu7bzq",
+    "database": "anec3ktye56rl7yf",
+    "host": "ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
