@@ -1,7 +1,7 @@
 <div class="row category-filters-row">
 
   {{!-- Dropdpown for book categories --}}
-  <div class="col-12 col-sm-6 col-md-3">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-3">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="categorySelectGroup">Category</label>
@@ -31,7 +31,7 @@
   </div>
 
   {{!-- Search field for book title --}}
-  <div class="col-12 col-sm-6 col-md-3">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-3">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="titleSearch">Title</label>
@@ -42,7 +42,7 @@
   </div>
 
   {{!-- Search field for ISBN --}}
-  <div class="col-12 col-sm-6 col-md-3">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-3">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="isbnSearch">ISBN</label>
@@ -54,7 +54,7 @@
 
   {{!-- Search field for book Author --}}
 
-  <div class="col-12 col-sm-6 col-md-3">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-3">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="authorSearch">Author</label>
@@ -65,10 +65,11 @@
   </div>
 
 </div>
-
+<div class="container">
 <div class="row">
-  <div class="col-md-8 offset-md-2">
+  <div class="col-12 col-md-12">
     <div class="author-container">
+      <div class="table-responsive">
       <br>
       <table class="table table-striped">
         <thead>
@@ -85,8 +86,10 @@
         <tbody>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
+</div>
 </div>
 
 <!--Delete Modal -->
@@ -109,6 +112,24 @@
     </div>
   </div>
 </div>
+
+{{!-- Modal message--}}
+<div class="modal" tabindex="-2" role="dialog" id="messageModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="messageModal-text"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="./js/bookBrowse.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

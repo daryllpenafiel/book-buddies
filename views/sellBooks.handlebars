@@ -7,7 +7,7 @@
 
     <div class="search-options">
         <div class="row radio-row">
-            <div class="col-md-4">
+            <div class="col-md-4 my-2">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="search-method" value="title">Search by Title
@@ -16,7 +16,7 @@
                 <input type="text" id="title-search-input" placeholder="Input title">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 my-2">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="search-method" value="isbn">Search by ISBN
@@ -25,7 +25,7 @@
                 <input type="text" id="isbn-search-input" placeholder="Input ISBN">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 my-2">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="search-method" value="manual">Enter book
@@ -38,7 +38,6 @@
         <button id="book-search-button" class="btn btn-primary">Go</button><br>
     </div>
 </section>
-
 
 {{!-- modal for book search results --}}
 <div class="modal fade" id="postBookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -76,6 +75,9 @@
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Email:</label>
                         <span class="form-control" id="sellerEmail"></span>
+                    </div>
+                    <div class="form-label-group">
+                        <p class="text-danger bookPostingErrorMessage mb-0"></p>
                     </div>
                 </form>
             </div>
@@ -156,6 +158,9 @@
                         <label for="message-text" class="col-form-label">Email:</label>
                         <span class="form-control" id="manual-sellerEmail"></span>
                     </div>
+                    <div class="form-label-group">
+                        <p class="text-danger bookPostingErrorMessage mb-0"></p>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -182,7 +187,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="results-here"></div>
 

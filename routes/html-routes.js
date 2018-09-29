@@ -46,11 +46,6 @@ module.exports = function (app) {
     res.render(path.join(__dirname, "../views/byCategory"));
   });
 
-  // //colors page
-  // app.get("/byColor/*", function (req, res) {
-  //   res.render(path.join(__dirname, "../views/byColor"));
-  // });
-
   //error
   app.get("/*", function (req, res) {
     res.render(path.join(__dirname, "../views/404"));

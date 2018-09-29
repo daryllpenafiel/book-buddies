@@ -26,12 +26,9 @@ $(document).ready(function () {
     $("#log-out-button").on("click", function () {
         event.preventDefault();
         firebase.auth().signOut().then(function () {
-            // alert("You have been signed out. See ya!");
-
             $(document.body).append(logoutModal);
             $("#logout-modal").modal("show");
             setTimeout(reloadHome, 2000);
-
         });
     });
 
@@ -39,16 +36,13 @@ $(document).ready(function () {
     firebase.auth().onAuthStateChanged(firebaseUser => {
 
         if (firebaseUser) {
-            var email = firebaseUser.email;
-            var uid = firebaseUser.uid;
-            console.log(email);
-            console.log(uid);
             $("#log-out-button").removeClass("d-none");
             $("#my-ads-button").removeClass("d-none");
             $(".login-section").addClass("d-none");
             $(".personal-section").removeClass("d-none");
+            $("#nav-log-in-button").addClass("d-none");
         } else {
-            console.log("Not logged in");
+            $("#nav-log-in-button").removeClass("d-none");
             $("#log-out-button").addClass("d-none");
             $("#my-ads-button").addClass("d-none");
             $(".login-section").removeClass("d-none")

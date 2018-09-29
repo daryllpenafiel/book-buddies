@@ -52,9 +52,13 @@ $(document).ready(function () {
     //-----------SEARCH BY TITLE---------------------------//
     $(document).on("click", "#title-search-button", function () {
         var titleToSearch = $("#titleSearch").val();
-        console.log(titleToSearch);
 
-        searchByTitle(titleToSearch);
+        if(!titleToSearch){
+            $(".messageModal-text").text("Please enter a title to search.").addClass("text-danger");
+            $("#messageModal").modal("show");
+        } else {
+            searchByTitle(titleToSearch);
+        }
     })
 
     function searchByTitle(title) {
@@ -71,8 +75,13 @@ $(document).ready(function () {
     //-----------SEARCH BY AUTHOR---------------------------//
     $(document).on("click", "#author-search-button", function () {
         var authorToSearch = $("#authorSearch").val();
-        console.log(authorToSearch);
-        searchByAuthor(authorToSearch);
+
+        if(!authorToSearch){
+            $(".messageModal-text").text("Please enter an author to search.").addClass("text-danger");
+            $("#messageModal").modal("show");
+        } else {
+            searchByAuthor(authorToSearch);
+        }
     })
 
     function searchByAuthor(author) {
@@ -90,8 +99,13 @@ $(document).ready(function () {
     //-----------SEARCH BY ISBN---------------------------//
     $(document).on("click", "#isbn-search-button", function () {
         var isbnToSearch = $("#isbnSearch").val();
-        console.log(isbnToSearch);
+
+        if(!isbnToSearch){
+            $(".messageModal-text").text("Please enter ISBN to search.").addClass("text-danger");
+            $("#messageModal").modal("show");
+        } else {
         searchByISBN(isbnToSearch);
+        }
     });
 
     function searchByISBN(isbn) {
@@ -131,5 +145,4 @@ $(document).ready(function () {
         $("#authorSearch").val("");
         $("#categorySelectGroup").val("All");
     };
-
 });

@@ -47,8 +47,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#contact-poster-button", function () {
         var userEmail = $(".user-email").text();
-        $("#recipient-name").attr("value",userEmail).prop("disabled",true);
-        console.log(userEmail);
+        $("#recipient-name").attr("value", userEmail).prop("disabled", true);
         $('#contact-form-modal').modal('show');
 
         $(document).on("click", "#send-message-button", function () {

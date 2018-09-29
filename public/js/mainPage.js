@@ -44,7 +44,6 @@
     };
 
     function resetForm() {
-        console.log("reset done!");
         $("#reg-firstName").val("");
         $("#reg-lastName").val("");
         $("#reg-userPhone").val("")
@@ -82,10 +81,6 @@
             event.preventDefault();
             var email = $("#inputEmail").val();
             var pass = $("#inputPassword").val();
-
-            console.log(email);
-            console.log(pass);
-
             const auth = firebase.auth();
             const promise = auth.signInWithEmailAndPassword(email, pass);
             promise.then(function () {
@@ -112,10 +107,6 @@
                 var email = $("#reg-inputEmail").val();
                 var pass = $("#reg-inputPassword").val();
                 var passVerify = $("#reg-inputPassword-verify").val();
-
-                console.log(email);
-                console.log(pass);
-
                 firstName = $("#reg-firstName").val().trim();
                 lastName = $("#reg-lastName").val().trim();
                 phoneNumber = $("#reg-userPhone").val().trim();

@@ -35,7 +35,7 @@ $(document).ready(function () {
                     renderBookList(rowsToAdd);
                 });
             } else {
-                console.log("Not logged in");
+                console.log("Not logged in.");
             }
             return email;
         });

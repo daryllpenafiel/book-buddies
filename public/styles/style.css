@@ -76,22 +76,22 @@ body {
     font-size: 18px;
 }
 
-.btn-primary{
+.btn-primary {
     color: #fff;
     background-color: coral;
     border-color: coral;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     color: #fff;
     background-color: darksalmon;
     border-color: darksalmon;
 }
 
-.btn-primary:active:focus{
-    color: coral!important;
-    background-color: white!important;
-    border-color: coral!important;
+.btn-primary:active:focus {
+    color: coral !important;
+    background-color: white !important;
+    border-color: coral !important;
 }
 
 
@@ -226,6 +226,18 @@ body {
     margin: auto 10px;
 }
 
-.left-text {
-    text-align: left !important;
+/* Responsiveness */
+@media (min-width : 768px) and (max-width : 1200px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .steps,
+    .have-no-fear {
+        width: 100%;
+        padding: 2rem 2rem;
+    }
 }

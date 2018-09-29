@@ -1,5 +1,4 @@
 function reloadSellPage() {
-    console.log("reload page");
     window.location.href = './myAds';
 };
 
@@ -26,7 +25,6 @@ $(document).ready(function () {
                         break;
                     } else {
                         queryURL = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + searchKeyword;
-                        console.log(queryURL);
                         performBookSearch(queryURL);
                         break;
                     }
@@ -38,12 +36,10 @@ $(document).ready(function () {
                         break;
                     } else {
                         queryURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + searchKeyword;
-                        console.log(queryURL);
                         performBookSearch(queryURL)
                         break;
                     }
                 case "manual":
-                    console.log("manual");
                     firebase.auth().onAuthStateChanged(firebaseUser => {
                         var fbemail;
 
@@ -57,7 +53,7 @@ $(document).ready(function () {
                     $('#manualFormModal').modal('show');
                     break;
                 default:
-                    console.log("mehh");
+                    console.log("input needed");
             }
             return queryURL;
         };
@@ -114,6 +110,7 @@ $(document).ready(function () {
     })
 
     $(document).on("click", "#manual-post-to-DB", function () {
+        $(".bookPostingErrorMessage").empty();
 
         var bookTitle = $("#manual-title-input").val();
         var bookAuthor = $("#manual-author-input").val();
@@ -125,14 +122,19 @@ $(document).ready(function () {
         var sellerEmail = $("#manual-sellerEmail").text();
 
         if (!bookTitle) {
-            alert("Please fill in the title field.")
+            $(".bookPostingErrorMessage").empty();
+            $(".bookPostingErrorMessage").text("Please fill in the title field.")
         } else if (!bookAuthor) {
-            alert("Please fill in the author field.")
+            $(".bookPostingErrorMessage").empty();
+            $(".bookPostingErrorMessage").text("Please fill in the author field.")
         } else if (!bookISBN) {
-            alert("Please fill in the ISBN field.")
+            $(".bookPostingErrorMessage").empty();
+            $(".bookPostingErrorMessage").text("Please fill in the ISBN field.")
         } else if (!bookPrice) {
-            alert("Please fill in the asking price field.")
+            $(".bookPostingErrorMessage").empty();
+            $(".bookPostingErrorMessage").text("Please fill in the asking price field.")
         } else {
+            $(".bookPostingErrorMessage").empty();
             postBooktoDB({
                 title: bookTitle,
                 author: bookAuthor,
@@ -149,6 +151,7 @@ $(document).ready(function () {
 
 
 $(document).on("click", ".confirm-book-button", function () {
+    $(".bookPostingErrorMessage").empty();
 
     //Auth State
     firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -188,8 +191,10 @@ $(document).on("click", ".confirm-book-button", function () {
         var sellerEmail = $("#sellerEmail").text();
 
         if (!bookPrice) {
-            alert("Please fill in the asking price field.")
+            $(".bookPostingErrorMessage").empty();
+            $(".bookPostingErrorMessage").text("Please fill in the asking price field.")
         } else {
+            $(".bookPostingErrorMessage").empty();
             postBooktoDB({
                 title: bookTitle,
                 author: bookAuthor,
@@ -209,7 +214,7 @@ function postBooktoDB(newBookData) {
     $.post("/api/books", newBookData)
         .then(function () {
             resetForm();
-            $(".messageModal-text").text("Your ad has been posted!");
+            $(".messageModal-text").text("Your ad has been posted!").removeClass("text-danger");
             $("#messageModal").modal("show");
             $('#postBookModal').modal("hide");
             $('#manualFormModal').modal("hide");
@@ -219,13 +224,11 @@ function postBooktoDB(newBookData) {
 
 $(document).on("keypress", function () {
     if (event.keyCode === 13) {
-        console.log("enter");
         $("#book-search-button").click();
     }
 });
 
 function resetForm() {
-    console.log("reset done!");
     $("#condition-select").val("");
     $("#price-input").val("");
     $("#comment-input").val("");
@@ -240,8 +243,4 @@ function resetForm() {
     $(".results-here").empty();
 
     result = [];
-    // var bookTitle;
-    // var bookAuthor;
-    // var bookCategory;
-    // var bookISBN;
 };
