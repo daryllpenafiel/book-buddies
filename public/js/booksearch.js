@@ -153,6 +153,15 @@ $(document).ready(function () {
 $(document).on("click", ".confirm-book-button", function () {
     $(".bookPostingErrorMessage").empty();
 
+    $("#price-input").val("");
+    $("#comment-input").val("");
+
+    var bookTitle = $(this).siblings(".card-bookTitle").text();
+    var bookAuthor = $(this).siblings(".card-bookAuthor").attr("data-value");
+    var bookCategory = $(this).siblings(".card-bookCategory").attr("data-value");
+    var bookISBN = $(this).siblings(".card-bookISBN").attr("data-value");
+    var bookImage = $(this).siblings(".btn-google").attr("image-link");
+
     //Auth State
     firebase.auth().onAuthStateChanged(firebaseUser => {
         var fbemail;
@@ -167,12 +176,6 @@ $(document).on("click", ".confirm-book-button", function () {
         $("#manual-sellerEmail").text(fbemail);
         $("#sellerEmail").text(fbemail);
     });
-
-    var bookTitle = $(this).siblings(".card-bookTitle").text();
-    var bookAuthor = $(this).siblings(".card-bookAuthor").attr("data-value");
-    var bookCategory = $(this).siblings(".card-bookCategory").attr("data-value");
-    var bookISBN = $(this).siblings(".card-bookISBN").attr("data-value");
-    var bookImage = $(this).siblings(".btn-google").attr("image-link");
 
     //-------Modal Input Values---------//
 
